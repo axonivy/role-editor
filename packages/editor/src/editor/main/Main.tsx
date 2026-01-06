@@ -6,6 +6,7 @@ import {
   deleteFirstSelectedRow,
   Flex,
   IvyIcon,
+  PanelMessage,
   selectRow,
   Separator,
   SortableHeader,
@@ -122,6 +123,20 @@ export const Main = () => {
   const ref = useHotkeys(hotkeys.deleteRole.hotkey, () => deleteRole(), { scopes: ['global'], enabled: !readonly });
   const firstElement = useRef<HTMLDivElement>(null);
   useHotkeys(hotkeys.focusMain.hotkey, () => firstElement.current?.focus(), { scopes: ['global'] });
+
+  if (data === undefined || data.length === 0) {
+    return (
+      <Flex direction='column' alignItems='center' justifyContent='center' style={{ height: '100%' }}>
+        <PanelMessage icon={IvyIcons.Tool} message={t('message.addFirstRole')} mode='column'>
+          <AddRoleDialog table={table}>
+            <Button size='large' variant='primary' icon={IvyIcons.Plus}>
+              {t('dialog.addRole.title')}
+            </Button>
+          </AddRoleDialog>
+        </PanelMessage>
+      </Flex>
+    );
+  }
 
   return (
     <Flex direction='column' ref={ref} onClick={resetSelection} className='role-editor-main-content'>
