@@ -19,7 +19,7 @@ pipeline {
               sh 'pnpm run ci'
             }
           }
-          archiveArtifacts artifacts: '**/integrations/standalone/build/**', allowEmptyArchive: true
+          archiveArtifacts artifacts: 'integrations/standalone/build/**', allowEmptyArchive: true
           currentBuild.description = "<a href=${BUILD_URL}artifact/integrations/standalone/build/index.html?server=localhost:8081&secure=false&app=designer&pmv=role-test-project&file=roles.yaml>&raquo; Role Editor</a><br>" + 
             "<a href=${BUILD_URL}artifact/integrations/standalone/build/mock.html>&raquo; Role Editor Mock</a>"
 

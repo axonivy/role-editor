@@ -52,7 +52,7 @@ pipeline {
                 devSchema="${artifacts}/workspace/ch.ivyteam.ivy.user.role.lsp.schema/target/schema/role/*/roles-tsgen.json/*zip*/schema.zip"
                 curl -o schema.zip ${devSchema}
                 unzip -j schema.zip
-                mv $PWD/role-tsgen.json $PWD/roles.json
+                mv $PWD/roles-tsgen.json $PWD/roles.json
                 pnpm run protocol generate $PWD/roles.json
                 pnpm run build && pnpm run lint:ci
               '''
