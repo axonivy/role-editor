@@ -21,8 +21,8 @@ export const ValidationRow = ({ row }: ValidationRowProps) => {
       </SelectRow>
       {validations?.map((val, index) => (
         <MessageRow
-          key={index}
-          columnCount={2}
+          key={`${index}-${val.message}`}
+          columnCount={row.getVisibleCells().length}
           message={{ message: val.message, variant: val.severity.toLocaleLowerCase() as Lowercase<Severity> }}
         />
       ))}

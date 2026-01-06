@@ -9,29 +9,37 @@
       "undo": "Undo ({{hotkey}})"
     },
     "label": {
+      "cancel": "Cancel",
       "details": "Details",
       "name": "Name"
     },
     "message": {
-      "errorOccured": "An error has occurred: {{message}}"
+      "errorOccurred": "An error has occurred: {{message}}"
     }
+  },
+  "dialog": {
+    "addRole": {
+      "desc": "Add a new role.",
+      "title": "Add Role"
+    },
+    "create": "Create",
+    "createTooltip": "Hold {{modifier}} to add an additional Role."
   },
   "hotkey": {
     "addRole": "Add Role ({{hotkey}})",
     "deleteRole": "Delete Role ({{hotkey}})"
   },
   "label": {
+    "memberRoles": "Members",
+    "parentRole": "Parent Role",
     "roles": "Roles"
   },
   "message": {
+    "emptyName": "Name cannot be empty.",
     "errorOnly": "Error: {{error}}",
-    "notFound": "Not Found"
-  },
-  "role": {
-    "label": {
-      "memberRoles": "Members",
-      "parentRole": "Parent Role"
-    }
+    "notAllowedChar": "Character '.' is not allowed.",
+    "notFound": "Not Found",
+    "roleAlreadyExists": "Role already exists."
   },
   "title": {
     "detail": "Role",

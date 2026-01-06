@@ -62,10 +62,10 @@ export const RoleToolbar = () => {
 };
 
 const EditButtons = () => {
-  const { history, setUnhistorisedVariables } = useAppContext();
+  const { history, setUnhistoriedVariables } = useAppContext();
   const hotkeys = useKnownHotkeys();
-  const undo = () => history.undo(setUnhistorisedVariables);
-  const redo = () => history.redo(setUnhistorisedVariables);
+  const undo = () => history.undo(setUnhistoriedVariables);
+  const redo = () => history.redo(setUnhistoriedVariables);
   useHotkeys(hotkeys.undo.hotkey, e => hotkeyUndoFix(e, undo), { scopes: ['global'] });
   useHotkeys(hotkeys.redo.hotkey, e => hotkeyRedoFix(e, redo), { scopes: ['global'] });
   return (

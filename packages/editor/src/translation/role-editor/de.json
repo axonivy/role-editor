@@ -1,37 +1,45 @@
 {
   "common": {
     "hotkey": {
-      "focusInscription": "Fokus Inskription ({{hotkey}})",
-      "focusMain": "Fokus Main ({{hotkey}})",
+      "focusInscription": "Fokus Detailansicht ({{hotkey}})",
+      "focusMain": "Fokus Hauptansicht ({{hotkey}})",
       "focusToolbar": "Fokus Toolbar ({{hotkey}})",
       "help": "Hilfe öffnen ({{hotkey}})",
       "redo": "Wiederholen ({{hotkey}})",
       "undo": "Rückgängig ({{hotkey}})"
     },
     "label": {
+      "cancel": "Abbrechen",
       "details": "Details",
       "name": "Name"
     },
     "message": {
-      "errorOccured": "Ein Fehler ist aufgetreten: {{message}}"
+      "errorOccurred": "Ein Fehler ist aufgetreten: {{message}}"
     }
+  },
+  "dialog": {
+    "addRole": {
+      "desc": "Eine neue Rolle hinzufügen.",
+      "title": "Rolle hinzufügen"
+    },
+    "create": "Erstellen",
+    "createTooltip": "Halte {{modifier}} gedrückt, um eine weitere Rolle hinzuzufügen."
   },
   "hotkey": {
     "addRole": "Rolle hinzufügen ({{hotkey}})",
     "deleteRole": "Rolle löschen ({{hotkey}})"
   },
   "label": {
+    "memberRoles": "Mitglieder",
+    "parentRole": "Übergeordnete Rolle",
     "roles": "Rollen"
   },
   "message": {
+    "emptyName": "Name darf nicht leer sein.",
     "errorOnly": "Fehler: {{error}}",
-    "notFound": "Nicht gefunden"
-  },
-  "role": {
-    "label": {
-      "memberRoles": "Mitglieder",
-      "parentRole": "Übergeordnete Rolle"
-    }
+    "notAllowedChar": "Zeichen '.' ist nicht erlaubt.",
+    "notFound": "Nicht gefunden",
+    "roleAlreadyExists": "Rolle existiert bereits."
   },
   "title": {
     "detail": "Rolle",
