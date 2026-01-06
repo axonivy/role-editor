@@ -24,11 +24,12 @@ import {
   useTableSort
 } from '@axonivy/ui-components';
 import { IvyIcons } from '@axonivy/ui-icons';
-import { getCoreRowModel, useReactTable, type ColumnDef } from '@tanstack/react-table';
+import { getCoreRowModel, useReactTable, type ColumnDef, type Table as ReactTable } from '@tanstack/react-table';
 import { useRef } from 'react';
 import { useTranslation } from 'react-i18next';
 import { useAppContext } from '../../context/AppContext';
 import { useKnownHotkeys } from '../../utils/useKnownHotkeys';
+import { AddRoleDialog } from '../dialog/AddRoleDialog';
 import './Main.css';
 import { ValidationRow } from './ValidationRow';
 
@@ -38,14 +39,14 @@ export const Main = () => {
 
   const selection = useTableSelect<RoleData>({
     onSelect: selectedRows => {
-      const selectedRowId = Object.keys(selectedRows).find(key => selectedRows[key]);
-      if (selectedRowId === undefined) {
+      const selectedRowIndex = Object.keys(selectedRows).find(key => selectedRows[key]);
+      if (selectedRowIndex === undefined) {
         setSelectedElement();
         return;
       }
-      const selectedVariable = table.getRowModel().flatRows.find(row => row.id === selectedRowId)?.id;
-      if (selectedVariable) {
-        setSelectedElement();
+      const selectedRole = table.getRowModel().flatRows.find(row => row.index === Number(selectedRowIndex))?.original.id;
+      if (selectedRole) {
+        setSelectedElement(selectedRole);
       }
     }
   });
@@ -64,13 +65,13 @@ export const Main = () => {
     },
     {
       accessorKey: 'parent',
-      header: ({ column }) => <SortableHeader column={column} name={t('role.label.parentRole')} />,
+      header: ({ column }) => <SortableHeader column={column} name={t('label.parentRole')} />,
       cell: cell => <span>{cell.getValue()}</span>
     },
     {
       id: 'member',
       accessorFn: row => row.members.join(','),
-      header: () => <span>{t('role.label.memberRoles')}</span>,
+      header: () => <span>{t('label.memberRoles')}</span>,
       cell: cell => (
         <Flex direction='row' gap={1}>
           {cell
@@ -128,7 +129,7 @@ export const Main = () => {
         tabIndex={-1}
         ref={firstElement}
         label={t('label.roles')}
-        control={<Controls deleteRole={table.getSelectedRowModel().flatRows.length > 0 ? deleteRole : undefined} />}
+        control={<Controls table={table} deleteRole={table.getSelectedRowModel().flatRows.length > 0 ? deleteRole : undefined} />}
         onClick={event => event.stopPropagation()}
       >
         {globalFilter.filter}
@@ -145,7 +146,7 @@ export const Main = () => {
   );
 };
 
-const Controls = ({ deleteRole }: { deleteRole?: () => void }) => {
+const Controls = ({ table, deleteRole }: { table: ReactTable<RoleData>; deleteRole?: () => void }) => {
   const readonly = useReadonly();
   const hotkeys = useKnownHotkeys();
   if (readonly) {
@@ -153,9 +154,9 @@ const Controls = ({ deleteRole }: { deleteRole?: () => void }) => {
   }
   return (
     <Flex gap={2}>
-      {/* <AddVariableDialog table={table}> */}
-      <Button icon={IvyIcons.Plus} aria-label={hotkeys.addRole.label} />
-      {/* </AddVariableDialog> */}
+      <AddRoleDialog table={table}>
+        <Button icon={IvyIcons.Plus} aria-label={hotkeys.addRole.label} />
+      </AddRoleDialog>
       <Separator decorative orientation='vertical' style={{ height: '20px', margin: 0 }} />
       <TooltipProvider>
         <Tooltip>

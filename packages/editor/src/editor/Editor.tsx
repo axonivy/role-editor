@@ -29,7 +29,7 @@ export const Editor = ({ context, directSave }: RoleEditorProps) => {
   const { t } = useTranslation();
   const [selectedElement, setSelectedElement] = useState<string>();
   const [detail, setDetail] = useState(true);
-  const [initialData, setInitalData] = useState<Array<RoleData> | undefined>(undefined);
+  const [initialData, setInitialData] = useState<Array<RoleData> | undefined>(undefined);
   const history = useHistoryData<Array<RoleData>>();
 
   const client = useClient();
@@ -67,7 +67,7 @@ export const Editor = ({ context, directSave }: RoleEditorProps) => {
   }, [client, context, queryClient, queryKeys]);
 
   if (data?.data !== undefined && initialData === undefined) {
-    setInitalData(data.data);
+    setInitialData(data.data);
     history.push(data.data);
   }
 
@@ -96,7 +96,7 @@ export const Editor = ({ context, directSave }: RoleEditorProps) => {
     );
   }
   if (isError) {
-    return <PanelMessage icon={IvyIcons.ErrorXMark} message={t('common.message.errorOccured', { message: error.message })} />;
+    return <PanelMessage icon={IvyIcons.ErrorXMark} message={t('common.message.errorOccurred', { message: error.message })} />;
   }
   if (data.data === undefined) {
     return <PanelMessage icon={IvyIcons.ErrorXMark} message={t('message.notFound')} />;
