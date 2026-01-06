@@ -3,17 +3,18 @@ import type {
   EditorFileContent,
   RoleActionArgs,
   RoleClient,
-  RoleData,
+  RoleEditorData,
   RoleMetaRequestTypes,
   ValidationResult
 } from '@axonivy/role-editor-protocol';
 import type { RoleSaveData } from '@axonivy/role-editor-protocol/src/data/role-data';
+import { data } from './data-mock';
 import { validateMock } from './validation-mock';
 
 export class RoleClientMock implements RoleClient {
-  private roleData: RoleData;
+  private roleData: RoleEditorData;
   constructor() {
-    this.roleData = {};
+    this.roleData = data;
   }
 
   protected onValidationChangedEmitter = new Emitter<void>();
@@ -25,17 +26,17 @@ export class RoleClientMock implements RoleClient {
     return Promise.resolve();
   }
 
-  data(): Promise<RoleData> {
+  data(): Promise<RoleEditorData> {
     return Promise.resolve(this.roleData);
   }
 
   saveData(saveData: RoleSaveData): Promise<EditorFileContent> {
-    this.roleData = saveData.data;
+    this.roleData = saveData;
     return Promise.resolve({ content: '' });
   }
 
   validate(): Promise<ValidationResult[]> {
-    return Promise.resolve(validateMock(this.roleData));
+    return Promise.resolve(validateMock(this.roleData.data));
   }
 
   meta<TMeta extends keyof RoleMetaRequestTypes>(

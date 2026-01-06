@@ -1,3 +1,40 @@
 {
-  "label": "role editor"
+  "common": {
+    "hotkey": {
+      "focusInscription": "Focus Inscription ({{hotkey}})",
+      "focusMain": "Focus Main ({{hotkey}})",
+      "focusToolbar": "Focus Toolbar ({{hotkey}})",
+      "help": "Open Help ({{hotkey}})",
+      "redo": "Redo ({{hotkey}})",
+      "undo": "Undo ({{hotkey}})"
+    },
+    "label": {
+      "details": "Details",
+      "name": "Name"
+    },
+    "message": {
+      "errorOccured": "An error has occurred: {{message}}"
+    }
+  },
+  "hotkey": {
+    "addRole": "Add Role ({{hotkey}})",
+    "deleteRole": "Delete Role ({{hotkey}})"
+  },
+  "label": {
+    "roles": "Roles"
+  },
+  "message": {
+    "errorOnly": "Error: {{error}}",
+    "notFound": "Not Found"
+  },
+  "role": {
+    "label": {
+      "memberRoles": "Members",
+      "parentRole": "Parent Role"
+    }
+  },
+  "title": {
+    "detail": "Role",
+    "main": "Roles - {{name}}"
+  }
 }

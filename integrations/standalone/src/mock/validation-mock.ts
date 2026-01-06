@@ -1,8 +1,11 @@
 import type { RoleData, ValidationResult } from '@axonivy/role-editor-protocol';
 
-// eslint-disable-next-line @typescript-eslint/no-unused-vars
-export const validateMock = (data: RoleData): Array<ValidationResult> => {
+export const validateMock = (data: Array<RoleData>): Array<ValidationResult> => {
   const validations: Array<ValidationResult> = [];
-  validations.push({ path: 'Input-1', message: 'Global warning', severity: 'WARNING' });
+  data.forEach(role => {
+    if (role.id.includes('#')) {
+      validations.push({ path: role.id, message: `Role ${role.id} contains invalid characters`, severity: 'ERROR' });
+    }
+  });
   return validations;
 };

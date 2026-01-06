@@ -1,14 +1,7 @@
-import type { RoleContext } from '@axonivy/role-editor-protocol';
-import { useTranslation } from 'react-i18next';
-
-type RoleEditorProps = {
-  context: RoleContext;
-  directSave?: boolean;
-};
+import { Editor, type RoleEditorProps } from './editor/Editor';
 
 function App(props: RoleEditorProps) {
-  const { t } = useTranslation();
-  return <h1 {...props}>{t('label')}</h1>;
+  return <Editor {...props} />;
 }
 
 export default App;

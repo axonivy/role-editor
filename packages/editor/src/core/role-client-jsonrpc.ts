@@ -13,7 +13,7 @@ import type {
   RoleActionArgs,
   RoleClient,
   RoleContext,
-  RoleData,
+  RoleEditorData,
   RoleMetaRequestTypes,
   RoleNotificationTypes,
   RoleOnNotificationTypes,
@@ -44,7 +44,7 @@ export class RoleClientJsonRpc extends BaseRpcClient implements RoleClient {
     return this.sendRequest('initialize', { ...context });
   }
 
-  data(context: RoleContext): Promise<RoleData> {
+  data(context: RoleContext): Promise<RoleEditorData> {
     return this.sendRequest('data', { ...context });
   }
 
