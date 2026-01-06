@@ -1,3 +1,40 @@
 {
-  "label": "rollen editor"
+  "common": {
+    "hotkey": {
+      "focusInscription": "Fokus Inskription ({{hotkey}})",
+      "focusMain": "Fokus Main ({{hotkey}})",
+      "focusToolbar": "Fokus Toolbar ({{hotkey}})",
+      "help": "Hilfe öffnen ({{hotkey}})",
+      "redo": "Wiederholen ({{hotkey}})",
+      "undo": "Rückgängig ({{hotkey}})"
+    },
+    "label": {
+      "details": "Details",
+      "name": "Name"
+    },
+    "message": {
+      "errorOccured": "Ein Fehler ist aufgetreten: {{message}}"
+    }
+  },
+  "hotkey": {
+    "addRole": "Rolle hinzufügen ({{hotkey}})",
+    "deleteRole": "Rolle löschen ({{hotkey}})"
+  },
+  "label": {
+    "roles": "Rollen"
+  },
+  "message": {
+    "errorOnly": "Fehler: {{error}}",
+    "notFound": "Nicht gefunden"
+  },
+  "role": {
+    "label": {
+      "memberRoles": "Mitglieder",
+      "parentRole": "Übergeordnete Rolle"
+    }
+  },
+  "title": {
+    "detail": "Rolle",
+    "main": "Rollen - {{name}}"
+  }
 }

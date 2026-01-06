@@ -4,5 +4,5 @@ import { screenshotElement } from './screenshot-util';
 
 test('editor', async ({ page }) => {
   await RoleEditor.openMock(page);
-  await screenshotElement(page.getByText('role editor'), 'dialog-create-from-data');
+  await screenshotElement(page.locator('.role-editor'), 'dialog-create-from-data');
 });

@@ -1,0 +1,6 @@
+.role-editor-main-content {
+  margin: var(--size-3);
+  .ui-table-cell:has(.ui-badge) {
+    padding: var(--size-1);
+  }
+}

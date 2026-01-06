@@ -1,5 +1,5 @@
-import type { EditorFileContent, RoleActionArgs, RoleContext, RoleData, ValidationResult } from './data/role';
-import type { RoleSaveData } from './data/role-data';
+import type { RoleContext, RoleEditorData } from './data/role';
+import type { EditorFileContent, RoleActionArgs, RoleSaveData, ValidationResult } from './data/role-data';
 import type { RoleMetaRequestTypes } from './role-protocol';
 
 export interface Event<T> {
@@ -13,7 +13,7 @@ export interface Disposable {
 
 export interface RoleClient {
   initialize(context: RoleContext): Promise<void>;
-  data(context: RoleContext): Promise<RoleData>;
+  data(context: RoleContext): Promise<RoleEditorData>;
   saveData(saveData: RoleSaveData): Promise<EditorFileContent>;
 
   validate(context: RoleContext): Promise<ValidationResult[]>;

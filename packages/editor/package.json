@@ -14,7 +14,8 @@
     "src"
   ],
   "dependencies": {
-    "@axonivy/role-editor-protocol": "workspace:~14.0.0-next"
+    "@axonivy/role-editor-protocol": "workspace:~14.0.0-next",
+    "react-error-boundary": "^6.0.0"
   },
   "peerDependencies": {
     "@axonivy/jsonrpc": "~14.0.0-next",

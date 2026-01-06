@@ -13,11 +13,11 @@ import enMessages from '../translation/role-editor/en.json';
 type ContextHelperProps = {
   appContext?: {
     context?: RoleContext;
-    data?: RoleData;
-    setData?: (data: RoleData) => void;
+    data?: Array<RoleData>;
+    setData?: (data: Array<RoleData>) => void;
     selectedElement?: string;
     setSelectedElement?: Dispatch<SetStateAction<string | undefined>>;
-    history?: ReturnType<typeof useHistoryData<RoleData>>;
+    history?: ReturnType<typeof useHistoryData<Array<RoleData>>>;
     validations?: Array<ValidationResult>;
     helpUrl?: string;
   };
@@ -37,7 +37,7 @@ const initTranslation = () => {
 };
 
 const ContextHelper = ({ appContext, children }: ContextHelperProps & { children: ReactNode }) => {
-  const data = appContext?.data ?? ({} as RoleData);
+  const data = appContext?.data ?? ([] as Array<RoleData>);
   const client: ClientContext = {
     // @ts-ignore
     client: {
@@ -63,7 +63,9 @@ const ContextHelper = ({ appContext, children }: ContextHelperProps & { children
             selectedElement: appContext?.selectedElement,
             setSelectedElement: appContext?.setSelectedElement ?? (() => {}),
             history: { push: () => {}, undo: () => {}, redo: () => {}, canUndo: false, canRedo: false },
-            validations: [],
+            validations: appContext?.validations ?? [],
+            detail: false,
+            setDetail: () => {},
             helpUrl: appContext?.helpUrl ?? ''
           }}
         >
