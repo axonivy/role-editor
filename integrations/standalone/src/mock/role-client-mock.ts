@@ -4,7 +4,6 @@ import type {
   RoleActionArgs,
   RoleClient,
   RoleEditorData,
-  RoleMetaRequestTypes,
   RoleSaveDataArgs,
   ValidationResult
 } from '@axonivy/role-editor-protocol';
@@ -42,17 +41,6 @@ export class RoleClientMock implements RoleClient {
 
   validate(): Promise<ValidationResult[]> {
     return Promise.resolve(validateMock(this.roleData.data));
-  }
-
-  meta<TMeta extends keyof RoleMetaRequestTypes>(
-    path: TMeta,
-    args: RoleMetaRequestTypes[TMeta][0]
-  ): Promise<RoleMetaRequestTypes[TMeta][1]> {
-    console.log(args);
-    switch (path) {
-      default:
-        throw Error('mock meta path not programmed');
-    }
   }
 
   action(action: RoleActionArgs): void {
