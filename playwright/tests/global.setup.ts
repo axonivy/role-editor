@@ -1,4 +1,4 @@
-import { server, user } from './page-objects/role-editor';
+import { server, user } from './page-objects/RoleEditor';
 
 const setup = async () => {
   if (!process.env.BASE_URL) {

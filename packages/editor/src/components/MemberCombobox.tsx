@@ -1,5 +1,5 @@
 import type { RoleData } from '@axonivy/role-editor-protocol';
-import { Button, Flex, IvyIcon, useField, useReadonly } from '@axonivy/ui-components';
+import { Button, cn, Flex, IvyIcon, useField, useReadonly } from '@axonivy/ui-components';
 import { IvyIcons } from '@axonivy/ui-icons';
 import { Combobox } from '@base-ui/react/combobox';
 import * as React from 'react';
@@ -20,7 +20,7 @@ export default function MemberCombobox({ value, onChange, items }: MemberCombobo
   const readonly = useReadonly();
   return (
     <Combobox.Root items={items} multiple value={value} onValueChange={onChange} disabled={readonly}>
-      <Combobox.Chips className={styles.Chips} ref={containerRef}>
+      <Combobox.Chips className={cn(styles.Chips, 'ui-combobox-root')} ref={containerRef}>
         <Combobox.Value>
           {(members: string[]) => (
             <React.Fragment>
@@ -31,7 +31,7 @@ export default function MemberCombobox({ value, onChange, items }: MemberCombobo
                 </Combobox.Chip>
               ))}
               <Flex alignItems='center' gap={1} className={styles.InputGroup}>
-                <Combobox.Input className={styles.Input} {...inputProps} />
+                <Combobox.Input className={styles.Input} {...inputProps} data-value={members.join(',')} />
                 <Combobox.Trigger className={styles.Trigger} render={<Button icon={IvyIcons.Chevron} rotate={90} />} />
               </Flex>
             </React.Fragment>

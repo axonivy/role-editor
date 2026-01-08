@@ -1,8 +1,9 @@
 import { test } from '@playwright/test';
-import { RoleEditor } from '../page-objects/role-editor';
-import { screenshotElement } from './screenshot-util';
+import { RoleEditor } from '../page-objects/RoleEditor';
+import { screenshot } from './screenshot-util';
 
 test('editor', async ({ page }) => {
-  await RoleEditor.openMock(page);
-  await screenshotElement(page.locator('.role-editor'), 'dialog-create-from-data');
+  const editor = await RoleEditor.openMock(page);
+  await editor.main.table.row(0).locator.click();
+  await screenshot(page, 'role-editor');
 });

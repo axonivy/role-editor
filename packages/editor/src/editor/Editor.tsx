@@ -81,7 +81,7 @@ export const Editor = ({ context, directSave }: RoleEditorProps) => {
         return undefined;
       });
       if (saveData) {
-        return client.saveData({ context, data: saveData.data, directSave });
+        return client.saveData({ context, data: saveData.data, directSave: directSave ?? false });
       }
       return Promise.resolve();
     },
@@ -114,7 +114,7 @@ export const Editor = ({ context, directSave }: RoleEditorProps) => {
         validations,
         detail,
         setDetail,
-        helpUrl: ''
+        helpUrl: data.helpUrl
       }}
     >
       <ResizablePanelGroup direction='horizontal' autoSaveId='role-editor-resize' className='role-editor'>

@@ -5,16 +5,21 @@ import type {
   RoleClient,
   RoleEditorData,
   RoleMetaRequestTypes,
+  RoleSaveDataArgs,
   ValidationResult
 } from '@axonivy/role-editor-protocol';
-import type { RoleSaveData } from '@axonivy/role-editor-protocol/src/data/role-data';
 import { data } from './data-mock';
 import { validateMock } from './validation-mock';
 
 export class RoleClientMock implements RoleClient {
   private roleData: RoleEditorData;
   constructor() {
-    this.roleData = data;
+    this.roleData = {
+      context: { app: 'mockApp', pmv: 'mockPmv', file: 'roles.yaml' },
+      data: data,
+      helpUrl: 'https://dev.axonivy.com',
+      readonly: false
+    };
   }
 
   protected onValidationChangedEmitter = new Emitter<void>();
@@ -30,8 +35,8 @@ export class RoleClientMock implements RoleClient {
     return Promise.resolve(this.roleData);
   }
 
-  saveData(saveData: RoleSaveData): Promise<EditorFileContent> {
-    this.roleData = saveData;
+  saveData(saveData: RoleSaveDataArgs): Promise<EditorFileContent> {
+    this.roleData.data = saveData.data;
     return Promise.resolve({ content: '' });
   }
 

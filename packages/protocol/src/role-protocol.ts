@@ -1,6 +1,6 @@
 /* eslint-disable @typescript-eslint/no-invalid-void-type */
-import type { RoleContext, RoleEditorData } from './data/role';
-import type { EditorFileContent, RoleActionArgs, RoleSaveData, ValidationResult } from './data/role-data';
+import type { EditorFileContent, RoleContext, RoleEditorData, RoleSaveDataArgs, ValidationResult } from './data/role';
+import type { RoleActionArgs } from './data/role-data';
 
 // eslint-disable-next-line @typescript-eslint/no-empty-object-type
 export interface RoleMetaRequestTypes {}
@@ -8,7 +8,7 @@ export interface RoleMetaRequestTypes {}
 export interface RoleRequestTypes extends RoleMetaRequestTypes {
   initialize: [RoleContext, void];
   data: [RoleContext, RoleEditorData];
-  saveData: [RoleSaveData, EditorFileContent];
+  saveData: [RoleSaveDataArgs, EditorFileContent];
 
   validate: [RoleContext, ValidationResult[]];
 }

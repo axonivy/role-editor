@@ -1,10 +1,10 @@
 /* eslint-disable @typescript-eslint/ban-ts-comment */
 import { type RoleContext, type RoleData, type RoleMetaRequestTypes, type ValidationResult } from '@axonivy/role-editor-protocol';
-import { type useHistoryData } from '@axonivy/ui-components';
+import { ReadonlyProvider, type useHistoryData } from '@axonivy/ui-components';
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
-import { renderHook, type RenderHookOptions } from '@testing-library/react';
+import { render, renderHook, type RenderHookOptions, type RenderOptions, type RenderResult } from '@testing-library/react';
 import i18n from 'i18next';
-import { type Dispatch, type ReactNode, type SetStateAction } from 'react';
+import { type Dispatch, type ReactElement, type ReactNode, type SetStateAction } from 'react';
 import { initReactI18next } from 'react-i18next';
 import { AppProvider } from '../context/AppContext';
 import { ClientContextProvider, type ClientContext } from '../context/ClientContext';
@@ -21,6 +21,7 @@ type ContextHelperProps = {
     validations?: Array<ValidationResult>;
     helpUrl?: string;
   };
+  readonly?: boolean;
 };
 
 const initTranslation = () => {
@@ -36,7 +37,7 @@ const initTranslation = () => {
   });
 };
 
-const ContextHelper = ({ appContext, children }: ContextHelperProps & { children: ReactNode }) => {
+const ContextHelper = ({ appContext, readonly, children }: ContextHelperProps & { children: ReactNode }) => {
   const data = appContext?.data ?? ([] as Array<RoleData>);
   const client: ClientContext = {
     // @ts-ignore
@@ -54,23 +55,25 @@ const ContextHelper = ({ appContext, children }: ContextHelperProps & { children
   return (
     <ClientContextProvider client={client.client}>
       <QueryClientProvider client={queryClient}>
-        <AppProvider
-          value={{
-            context: appContext?.context ?? ({ file: '' } as RoleContext),
-            data,
-            // @ts-ignore
-            setData: appContext?.setData ? getData => appContext.setData(getData(data)) : () => {},
-            selectedElement: appContext?.selectedElement,
-            setSelectedElement: appContext?.setSelectedElement ?? (() => {}),
-            history: { push: () => {}, undo: () => {}, redo: () => {}, canUndo: false, canRedo: false },
-            validations: appContext?.validations ?? [],
-            detail: false,
-            setDetail: () => {},
-            helpUrl: appContext?.helpUrl ?? ''
-          }}
-        >
-          {children}
-        </AppProvider>
+        <ReadonlyProvider readonly={readonly ?? false}>
+          <AppProvider
+            value={{
+              context: appContext?.context ?? ({ file: '' } as RoleContext),
+              data,
+              // @ts-ignore
+              setData: appContext?.setData ? getData => appContext.setData(getData(data)) : () => {},
+              selectedElement: appContext?.selectedElement,
+              setSelectedElement: appContext?.setSelectedElement ?? (() => {}),
+              history: { push: () => {}, undo: () => {}, redo: () => {}, canUndo: false, canRedo: false },
+              validations: appContext?.validations ?? [],
+              detail: false,
+              setDetail: () => {},
+              helpUrl: appContext?.helpUrl ?? ''
+            }}
+          >
+            {children}
+          </AppProvider>
+        </ReadonlyProvider>
       </QueryClientProvider>
     </ClientContextProvider>
   );
@@ -84,4 +87,11 @@ export const customRenderHook = <Result, Props>(
     wrapper: props => <ContextHelper {...props} {...options?.wrapperProps} />,
     ...options
   });
+};
+
+export const customRender = (
+  ui: ReactElement,
+  options?: Omit<RenderOptions, 'wrapper'> & { wrapperProps: ContextHelperProps }
+): RenderResult => {
+  return render(ui, { wrapper: props => <ContextHelper {...props} {...options?.wrapperProps} />, ...options });
 };

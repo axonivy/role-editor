@@ -1,9 +1,12 @@
 import type { Page } from '@playwright/test';
+import { Detail } from './Detail';
+import { Main } from './Main';
+import { Toolbar } from './Toolbar';
 
-export const server = process.env.BASE_URL ?? 'http://localhost:8081';
+export const server = process.env.BASE_URL ?? 'localhost:8080/~Developer-role-test-project';
 export const user = 'Developer';
 const ws = process.env.TEST_WS ?? '';
-const app = process.env.TEST_APP ?? 'designer';
+const app = process.env.TEST_APP ?? 'Developer-role-test-project';
 const pmv = 'role-test-project';
 
 export class RoleEditor {
@@ -22,7 +25,7 @@ export class RoleEditor {
 
   static async openRole(page: Page, options?: { readonly?: boolean; theme?: string }) {
     const serverUrl = server.replace(/^https?:\/\//, '');
-    let url = `?server=${serverUrl}${ws}&app=${app}&pmv=${pmv}&file=roles.yaml`;
+    let url = `?server=${serverUrl}${ws}&app=${app}&pmv=${pmv}&file=config/roles.xml`;
     if (options) {
       url += Object.entries(options)
         .map(([key, value]) => `&${key}=${value}`)
@@ -34,5 +37,17 @@ export class RoleEditor {
   static async openMock(page: Page) {
     const url = `mock.html`;
     return await this.open(page, url);
+  }
+
+  get toolbar() {
+    return new Toolbar(this.page);
+  }
+
+  get main() {
+    return new Main(this.page);
+  }
+
+  get detail() {
+    return new Detail(this.page);
   }
 }
