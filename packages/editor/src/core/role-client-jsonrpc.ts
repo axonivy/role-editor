@@ -14,7 +14,6 @@ import type {
   RoleClient,
   RoleContext,
   RoleEditorData,
-  RoleMetaRequestTypes,
   RoleNotificationTypes,
   RoleOnNotificationTypes,
   RoleRequestTypes,
@@ -54,13 +53,6 @@ export class RoleClientJsonRpc extends BaseRpcClient implements RoleClient {
 
   validate(context: RoleContext): Promise<ValidationResult[]> {
     return this.sendRequest('validate', { ...context });
-  }
-
-  meta<TMeta extends keyof RoleMetaRequestTypes>(
-    path: TMeta,
-    args: RoleMetaRequestTypes[TMeta][0]
-  ): Promise<RoleMetaRequestTypes[TMeta][1]> {
-    return this.sendRequest(path, args);
   }
 
   action(action: RoleActionArgs): void {

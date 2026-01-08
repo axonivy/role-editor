@@ -1,6 +1,5 @@
 import type { EditorFileContent, RoleContext, RoleEditorData, RoleSaveDataArgs, ValidationResult } from './data/role';
 import type { RoleActionArgs } from './data/role-data';
-import type { RoleMetaRequestTypes } from './role-protocol';
 
 export interface Event<T> {
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
@@ -17,11 +16,6 @@ export interface RoleClient {
   saveData(saveData: RoleSaveDataArgs): Promise<EditorFileContent>;
 
   validate(context: RoleContext): Promise<ValidationResult[]>;
-
-  meta<TMeta extends keyof RoleMetaRequestTypes>(
-    path: TMeta,
-    args: RoleMetaRequestTypes[TMeta][0]
-  ): Promise<RoleMetaRequestTypes[TMeta][1]>;
 
   action(action: RoleActionArgs): void;
 

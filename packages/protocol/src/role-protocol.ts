@@ -2,10 +2,7 @@
 import type { EditorFileContent, RoleContext, RoleEditorData, RoleSaveDataArgs, ValidationResult } from './data/role';
 import type { RoleActionArgs } from './data/role-data';
 
-// eslint-disable-next-line @typescript-eslint/no-empty-object-type
-export interface RoleMetaRequestTypes {}
-
-export interface RoleRequestTypes extends RoleMetaRequestTypes {
+export interface RoleRequestTypes {
   initialize: [RoleContext, void];
   data: [RoleContext, RoleEditorData];
   saveData: [RoleSaveDataArgs, EditorFileContent];
