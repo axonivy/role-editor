@@ -40,7 +40,7 @@ export const RoleToolbar = () => {
   );
   return (
     <Toolbar tabIndex={-1} ref={firstElement} className='role-editor-main-toolbar'>
-      <ToolbarTitle>{t('title.main', { name: context.pmv })}</ToolbarTitle>
+      <ToolbarTitle className='role-editor-main-toolbar-title'>{t('title.main', { name: context.pmv })}</ToolbarTitle>
       <Flex gap={1}>
         {!readonly && <EditButtons />}
         <TooltipProvider>

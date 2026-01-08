@@ -18,7 +18,7 @@ import type {
   RoleNotificationTypes,
   RoleOnNotificationTypes,
   RoleRequestTypes,
-  RoleSaveData,
+  RoleSaveDataArgs,
   ValidationResult
 } from '@axonivy/role-editor-protocol';
 
@@ -48,7 +48,7 @@ export class RoleClientJsonRpc extends BaseRpcClient implements RoleClient {
     return this.sendRequest('data', { ...context });
   }
 
-  saveData(saveData: RoleSaveData): Promise<EditorFileContent> {
+  saveData(saveData: RoleSaveDataArgs): Promise<EditorFileContent> {
     return this.sendRequest('saveData', { ...saveData });
   }
 

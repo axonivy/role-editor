@@ -5,11 +5,19 @@
  * and run json-schema-to-typescript to regenerate this file.
  */
 
+export type Severity = ("INFO" | "WARNING" | "ERROR")
+
 export interface Roles {
-boolean: boolean
-roleContext: RoleContext
-roleEditorData: RoleEditorData
-[k: string]: unknown
+  boolean: boolean;
+  editorFileContent: EditorFileContent;
+  roleContext: RoleContext;
+  roleEditorData: RoleEditorData;
+  roleSaveDataArgs: RoleSaveDataArgs;
+  validationResult: ValidationResult[];
+  [k: string]: unknown;
+}
+export interface EditorFileContent {
+  content: string;
 }
 export interface RoleContext {
   app: string;
@@ -19,10 +27,22 @@ export interface RoleContext {
 export interface RoleEditorData {
   context: RoleContext;
   data: RoleData[];
+  helpUrl: string;
+  readonly: boolean;
 }
 export interface RoleData {
   displayName: string;
   id: string;
   members: string[];
   parent: string;
+}
+export interface RoleSaveDataArgs {
+  context: RoleContext;
+  data: RoleData[];
+  directSave: boolean;
+}
+export interface ValidationResult {
+  message: string;
+  path: string;
+  severity: Severity;
 }
