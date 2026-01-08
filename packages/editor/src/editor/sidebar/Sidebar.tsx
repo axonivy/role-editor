@@ -4,6 +4,7 @@ import { useTranslation } from 'react-i18next';
 import { useAppContext } from '../../context/AppContext';
 import { useAction } from '../../context/useAction';
 import { useKnownHotkeys } from '../../utils/useKnownHotkeys';
+import { DetailContent } from './DetailContent';
 
 export const Sidebar = () => {
   const { helpUrl, selectedElement } = useAppContext();
@@ -29,7 +30,7 @@ export const Sidebar = () => {
           </Tooltip>
         </TooltipProvider>
       </SidebarHeader>
-      {/* <VariablesDetailContent /> */}
+      <DetailContent />
     </>
   );
 };

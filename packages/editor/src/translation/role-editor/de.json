@@ -11,7 +11,9 @@
     "label": {
       "cancel": "Abbrechen",
       "details": "Details",
-      "name": "Name"
+      "displayName": "Anzeigename",
+      "name": "Name",
+      "remove": "Entfernen"
     },
     "message": {
       "errorOccurred": "Ein Fehler ist aufgetreten: {{message}}"
@@ -31,10 +33,13 @@
   },
   "label": {
     "memberRoles": "Mitglieder",
+    "noRoleSelected": "Keine Rolle ausgewählt",
+    "noRolesFound": "Keine Rollen gefunden",
     "parentRole": "Übergeordnete Rolle",
     "roles": "Rollen"
   },
   "message": {
+    "addFirstRole": "Fügen Sie Ihre erste Rolle hinzu, um zu beginnen",
     "emptyName": "Name darf nicht leer sein.",
     "errorOnly": "Fehler: {{error}}",
     "notAllowedChar": "Zeichen '.' ist nicht erlaubt.",

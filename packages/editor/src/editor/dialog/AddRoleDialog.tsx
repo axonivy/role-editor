@@ -2,7 +2,6 @@ import type { RoleData } from '@axonivy/role-editor-protocol';
 import {
   BasicDialogContent,
   BasicField,
-  BasicSelect,
   Button,
   Dialog,
   DialogContent,
@@ -21,6 +20,7 @@ import { IvyIcons } from '@axonivy/ui-icons';
 import type { Table } from '@tanstack/react-table';
 import { useRef, useState, type ReactNode } from 'react';
 import { useTranslation } from 'react-i18next';
+import { RoleSelect } from '../../components/RoleSelect';
 import { useAppContext } from '../../context/AppContext';
 import { useKnownHotkeys } from '../../utils/useKnownHotkeys';
 import { useValidateAddRole } from './useValidateAddRole';
@@ -110,12 +110,7 @@ const AddDialogContent = ({ table, closeDialog }: { table: Table<RoleData>; clos
         <Input ref={nameInputRef} value={name} onChange={event => setName(event.target.value)} />
       </BasicField>
       <BasicField label={t('label.parentRole')} aria-label={t('label.parentRole')}>
-        <BasicSelect
-          value={parent}
-          onValueChange={value => setParent(value)}
-          emptyItem={true}
-          items={data.map(role => ({ label: `${role.id} (${role.displayName})`, value: role.id }))}
-        />
+        <RoleSelect value={parent} onValueChange={value => setParent(value)} roles={data} />
       </BasicField>
     </BasicDialogContent>
   );

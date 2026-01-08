@@ -11,7 +11,9 @@
     "label": {
       "cancel": "Cancel",
       "details": "Details",
-      "name": "Name"
+      "displayName": "Display Name",
+      "name": "Name",
+      "remove": "Remove"
     },
     "message": {
       "errorOccurred": "An error has occurred: {{message}}"
@@ -31,10 +33,13 @@
   },
   "label": {
     "memberRoles": "Members",
+    "noRoleSelected": "No Role Selected",
+    "noRolesFound": "No Roles Found",
     "parentRole": "Parent Role",
     "roles": "Roles"
   },
   "message": {
+    "addFirstRole": "Add your first role to get started",
     "emptyName": "Name cannot be empty.",
     "errorOnly": "Error: {{error}}",
     "notAllowedChar": "Character '.' is not allowed.",
