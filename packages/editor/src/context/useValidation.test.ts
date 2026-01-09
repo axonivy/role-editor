@@ -22,8 +22,8 @@ const data: Array<RoleData> = [
 ];
 
 const validations: Array<ValidationResult> = [
-  { message: 'message0', path: 'Employee', severity: 'INFO' },
-  { message: 'message1', path: 'Teamleader', severity: 'INFO' },
+  { message: 'message0', path: 'Employee.id', severity: 'INFO' },
+  { message: 'message1', path: 'Teamleader.parent', severity: 'INFO' },
   { message: 'message2', path: 'Teamleader', severity: 'WARNING' },
   { message: 'message3', path: 'Teamleader', severity: 'ERROR' },
   { message: 'message4', path: 'Manager', severity: 'INFO' }
