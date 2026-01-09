@@ -22,6 +22,4 @@ test('validate', () => {
   const alreadyExistError = { message: 'Role already exists.', variant: 'error' };
   expect(validate('Employee').nameValidationMessage).toEqual(alreadyExistError);
   expect(validate('Teamleader    ').nameValidationMessage).toEqual(alreadyExistError);
-  const charNotAllowedError = { message: "Character '.' is not allowed.", variant: 'error' };
-  expect(validate('New.Name').nameValidationMessage).toEqual(charNotAllowedError);
 });

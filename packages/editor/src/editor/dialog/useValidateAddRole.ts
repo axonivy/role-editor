@@ -11,9 +11,6 @@ export const useValidateAddRole = (name: string, roles: Array<RoleData>) => {
     if (trimmedName === '') {
       return toErrorMessage(t('message.emptyName'));
     }
-    if (trimmedName.includes('.')) {
-      return toErrorMessage(t('message.notAllowedChar'));
-    }
     if (roles.map(role => role.id).includes(trimmedName)) {
       return toErrorMessage(t('message.roleAlreadyExists'));
     }

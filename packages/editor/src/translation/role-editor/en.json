@@ -42,7 +42,6 @@
     "addFirstRole": "Add your first role to get started",
     "emptyName": "Name cannot be empty.",
     "errorOnly": "Error: {{error}}",
-    "notAllowedChar": "Character '.' is not allowed.",
     "notFound": "Not Found",
     "roleAlreadyExists": "Role already exists."
   },
