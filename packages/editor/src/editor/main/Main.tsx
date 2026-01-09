@@ -33,6 +33,7 @@ import { useKnownHotkeys } from '../../utils/useKnownHotkeys';
 import { AddRoleDialog } from '../dialog/AddRoleDialog';
 import './Main.css';
 import { ValidationRow } from './ValidationRow';
+import { cleanupDeletedRoleReferences } from './cleanup-deleted-role-references';
 
 export const Main = () => {
   const { t } = useTranslation();
@@ -110,8 +111,12 @@ export const Main = () => {
 
   const deleteRole = () =>
     setData(old => {
-      const deleteFirstSelectedRowReturnValue = deleteFirstSelectedRow(table, old);
-      return deleteFirstSelectedRowReturnValue.newData;
+      const selectedRow = table.getSelectedRowModel().flatRows[0];
+      if (!selectedRow) {
+        return old;
+      }
+      const newData = deleteFirstSelectedRow(table, old).newData;
+      return cleanupDeletedRoleReferences(selectedRow.original.id, newData);
     });
 
   const resetSelection = () => {
