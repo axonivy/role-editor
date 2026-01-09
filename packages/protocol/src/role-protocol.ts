@@ -1,6 +1,5 @@
 /* eslint-disable @typescript-eslint/no-invalid-void-type */
-import type { EditorFileContent, RoleContext, RoleEditorData, RoleSaveDataArgs, ValidationResult } from './data/role';
-import type { RoleActionArgs } from './data/role-data';
+import type { EditorFileContent, RoleActionArgs, RoleContext, RoleEditorData, RoleSaveDataArgs, ValidationResult } from './data/role';
 
 export interface RoleRequestTypes {
   initialize: [RoleContext, void];
