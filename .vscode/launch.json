@@ -8,7 +8,7 @@
       "name": "Launch Standalone (Chrome)",
       "type": "chrome",
       "request": "launch",
-      "url": "http://localhost:3000/?server=localhost:8080/~Developer-role-test-project&app=Developer-role-test-project&pmv=role-test-project&file=config/roles.xml&directSave",
+      "url": "http://localhost:3000/?server=localhost:8080/~Developer-role-test-project&app=Developer-role-test-project&pmv=role-test-project&file=config/roles.yaml&directSave",
       "presentation": {
         "group": "4. Standalone",
         "order": 1
