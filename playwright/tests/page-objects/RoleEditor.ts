@@ -25,7 +25,7 @@ export class RoleEditor {
 
   static async openRole(page: Page, options?: { readonly?: boolean; theme?: string }) {
     const serverUrl = server.replace(/^https?:\/\//, '');
-    let url = `?server=${serverUrl}${ws}&app=${app}&pmv=${pmv}&file=config/roles.xml`;
+    let url = `?server=${serverUrl}${ws}&app=${app}&pmv=${pmv}&file=config/roles.yaml`;
     if (options) {
       url += Object.entries(options)
         .map(([key, value]) => `&${key}=${value}`)
