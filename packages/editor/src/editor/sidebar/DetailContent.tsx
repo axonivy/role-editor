@@ -6,24 +6,36 @@ import MemberCombobox from '../../components/MemberCombobox';
 import { RoleSelect } from '../../components/RoleSelect';
 import { useAppContext } from '../../context/AppContext';
 import { useValidations } from '../../context/useValidation';
+import { updateRoleReferences } from '../../utils/update-role-references';
 import './DetailContent.css';
 
 export const DetailContent = () => {
   const { t } = useTranslation();
-  const { data, setData, selectedElement } = useAppContext();
-  const role = useMemo(() => data.find(role => role.id === selectedElement), [data, selectedElement]);
+  const { data, setData, selectedIndex } = useAppContext();
+  const role = useMemo(() => data[selectedIndex], [data, selectedIndex]);
   const validations = useValidations(role?.id ?? '');
   if (role === undefined) {
     return <PanelMessage message={t('label.noRoleSelected')} />;
   }
   const handleAttributeChange = <T extends keyof RoleData>(key: T, value: RoleData[T]) =>
     setData(old => {
-      const oldRole = old.find(r => r.id === role.id);
+      const oldRole = old[selectedIndex];
       if (oldRole) {
         oldRole[key] = value;
       }
       return structuredClone(old);
     });
+
+  const updateName = (name: string) => {
+    setData(old => {
+      const oldRole = old[selectedIndex];
+      const oldRoleId = oldRole?.id ?? '';
+      if (oldRole) {
+        oldRole.id = name;
+      }
+      return updateRoleReferences(old, oldRoleId, name);
+    });
+  };
 
   const nameMessage = fieldMessage(validations, role.id, 'id');
   const parentMessage = fieldMessage(validations, role.id, 'parent');
@@ -32,7 +44,7 @@ export const DetailContent = () => {
   return (
     <Flex direction='column' gap={4} className='role-editor-detail-content'>
       <BasicField label={t('common.label.name')} message={nameMessage}>
-        <BasicInput value={role.id} disabled />
+        <BasicInput value={role.id} onChange={event => updateName(event.target.value)} />
       </BasicField>
       <BasicField label={t('common.label.displayName')}>
         <BasicInput value={role.displayName} onChange={event => handleAttributeChange('displayName', event.target.value)} />
@@ -41,14 +53,14 @@ export const DetailContent = () => {
         <RoleSelect
           value={role.parent}
           onValueChange={value => handleAttributeChange('parent', value)}
-          roles={data.filter(r => r.id !== selectedElement)}
+          roles={data.filter(r => r.id !== role.id)}
         />
       </BasicField>
       <BasicField label={t('label.memberRoles')} message={memberMessage}>
         <MemberCombobox
           value={role.members}
           onChange={value => handleAttributeChange('members', value)}
-          items={data.filter(r => r.id !== selectedElement)}
+          items={data.filter(r => r.id !== role.id)}
         />
       </BasicField>
     </Flex>

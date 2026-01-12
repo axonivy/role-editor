@@ -20,8 +20,8 @@ export const useUiState = () => {
 export type AppContext = {
   data: Array<RoleData>;
   setData: UpdateConsumer<Array<RoleData>>;
-  selectedElement?: string;
-  setSelectedElement: (element?: string) => void;
+  selectedIndex: number;
+  setSelectedIndex: (index: number) => void;
   context: RoleContext;
   history: ReturnType<typeof useHistoryData<Array<RoleData>>>;
   validations: Array<ValidationResult>;
@@ -33,7 +33,8 @@ export type AppContext = {
 export const appContext = createContext<AppContext>({
   data: [],
   setData: data => data,
-  setSelectedElement: () => {},
+  selectedIndex: -1,
+  setSelectedIndex: () => {},
   context: { app: '', pmv: '', file: '' },
   history: { push: () => {}, undo: () => {}, redo: () => {}, canUndo: false, canRedo: false },
   validations: [],
