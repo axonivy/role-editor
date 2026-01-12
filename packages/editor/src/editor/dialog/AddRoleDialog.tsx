@@ -51,7 +51,7 @@ export const AddRoleDialog = ({ table, children }: { table: Table<RoleData>; chi
 const AddDialogContent = ({ table, closeDialog }: { table: Table<RoleData>; closeDialog: () => void }) => {
   const nameInputRef = useRef<HTMLInputElement>(null);
   const { t } = useTranslation();
-  const { data, setData, setSelectedElement } = useAppContext();
+  const { data, setData, setSelectedIndex } = useAppContext();
   const [name, setName] = useState('');
   const [parent, setParent] = useState('');
   const { nameValidationMessage } = useValidateAddRole(name, data);
@@ -70,7 +70,7 @@ const AddDialogContent = ({ table, closeDialog }: { table: Table<RoleData>; clos
       nameInputRef.current?.focus();
     }
     selectRow(table, id);
-    setSelectedElement(id);
+    setSelectedIndex(data.length);
   };
 
   const enter = useHotkeys(['Enter', 'mod+Enter'], addRole, { scopes: DIALOG_HOTKEY_IDS, enableOnFormTags: true });

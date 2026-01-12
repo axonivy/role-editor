@@ -7,7 +7,8 @@ import { useKnownHotkeys } from '../../utils/useKnownHotkeys';
 import { DetailContent } from './DetailContent';
 
 export const Sidebar = () => {
-  const { helpUrl, selectedElement } = useAppContext();
+  const { data, helpUrl, selectedIndex } = useAppContext();
+  const role = data[selectedIndex];
   const { t } = useTranslation();
   const openUrl = useAction('openUrl');
   const { openHelp: helpText } = useKnownHotkeys();
@@ -15,12 +16,7 @@ export const Sidebar = () => {
 
   return (
     <>
-      <SidebarHeader
-        title={selectedElement ?? t('title.detail')}
-        icon={IvyIcons.PenEdit}
-        className='role-editor-detail-header'
-        tabIndex={-1}
-      >
+      <SidebarHeader title={role?.id ?? t('title.detail')} icon={IvyIcons.PenEdit} className='role-editor-detail-header' tabIndex={-1}>
         <TooltipProvider>
           <Tooltip>
             <TooltipTrigger asChild>

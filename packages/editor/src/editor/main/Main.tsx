@@ -29,27 +29,24 @@ import { getCoreRowModel, useReactTable, type ColumnDef, type Table as ReactTabl
 import { useRef } from 'react';
 import { useTranslation } from 'react-i18next';
 import { useAppContext } from '../../context/AppContext';
+import { updateRoleReferences } from '../../utils/update-role-references';
 import { useKnownHotkeys } from '../../utils/useKnownHotkeys';
 import { AddRoleDialog } from '../dialog/AddRoleDialog';
 import './Main.css';
 import { ValidationRow } from './ValidationRow';
-import { cleanupDeletedRoleReferences } from './cleanup-deleted-role-references';
 
 export const Main = () => {
   const { t } = useTranslation();
-  const { data, setData, setSelectedElement, detail, setDetail } = useAppContext();
+  const { data, setData, setSelectedIndex, detail, setDetail } = useAppContext();
 
   const selection = useTableSelect<RoleData>({
     onSelect: selectedRows => {
       const selectedRowIndex = Object.keys(selectedRows).find(key => selectedRows[key]);
       if (selectedRowIndex === undefined) {
-        setSelectedElement();
+        setSelectedIndex(-1);
         return;
       }
-      const selectedRole = table.getRowModel().flatRows.find(row => row.index === Number(selectedRowIndex))?.original.id;
-      if (selectedRole) {
-        setSelectedElement(selectedRole);
-      }
+      setSelectedIndex(Number(selectedRowIndex));
     }
   });
   const globalFilter = useTableGlobalFilter();
@@ -116,7 +113,7 @@ export const Main = () => {
         return old;
       }
       const newData = deleteFirstSelectedRow(table, old).newData;
-      return cleanupDeletedRoleReferences(selectedRow.original.id, newData);
+      return updateRoleReferences(newData, selectedRow.original.id);
     });
 
   const resetSelection = () => {

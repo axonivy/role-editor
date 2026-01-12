@@ -17,7 +17,6 @@ test('edit role', async ({ page }) => {
   await expect(editor.detail.content).toBeVisible();
 
   await expect(editor.detail.name).toHaveValue('Employee');
-  await expect(editor.detail.name).toBeDisabled();
   await expect(editor.detail.displayName).toHaveValue('Employee role');
   await expect(editor.detail.parent.locator).toHaveText('');
   await editor.detail.members.expectToHaveValue('Manager,Teamleader');
@@ -27,4 +26,22 @@ test('edit role', async ({ page }) => {
   await editor.detail.members.select('Deliverer (Deliverer)');
   await page.keyboard.press('Escape');
   await editor.main.table.row(0).expectToHaveColumns('Employee', 'Order', 'ManagerTeamleaderDeliverer');
+});
+
+test('update role references', async ({ page }) => {
+  const editor = await RoleEditor.openMock(page);
+  await editor.main.table.row(0).expectToHaveColumns('Employee', '', 'ManagerTeamleader');
+  await editor.main.table.row(2).expectToHaveColumns('Manager', '', '');
+  await editor.main.table.row(3).expectToHaveColumns('HR Manager', 'Manager', '');
+
+  await editor.main.table.row(2).locator.click();
+  await expect(editor.detail.header).toHaveText('Manager');
+  await expect(editor.detail.name).toHaveValue('Manager');
+
+  await editor.detail.name.fill('Manager123');
+  await expect(editor.detail.header).toHaveText('Manager123');
+  await expect(editor.detail.name).toHaveValue('Manager123');
+  await editor.main.table.row(0).expectToHaveColumns('Employee', '', 'Manager123Teamleader');
+  await editor.main.table.row(2).expectToHaveColumns('Manager123', '', '');
+  await editor.main.table.row(3).expectToHaveColumns('HR Manager', 'Manager123', '');
 });

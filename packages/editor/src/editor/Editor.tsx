@@ -27,7 +27,7 @@ export type RoleEditorProps = { context: RoleContext; directSave?: boolean };
 
 export const Editor = ({ context, directSave }: RoleEditorProps) => {
   const { t } = useTranslation();
-  const [selectedElement, setSelectedElement] = useState<string>();
+  const [selectedIndex, setSelectedIndex] = useState(-1);
   const [detail, setDetail] = useState(true);
   const [initialData, setInitialData] = useState<Array<RoleData> | undefined>(undefined);
   const history = useHistoryData<Array<RoleData>>();
@@ -107,8 +107,8 @@ export const Editor = ({ context, directSave }: RoleEditorProps) => {
       value={{
         data: data.data,
         setData: mutation.mutate,
-        selectedElement,
-        setSelectedElement,
+        selectedIndex,
+        setSelectedIndex,
         context: data.context,
         history,
         validations,
