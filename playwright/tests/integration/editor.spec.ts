@@ -2,14 +2,36 @@ import { expect, test } from '@playwright/test';
 import { AddRoleDialog } from '../page-objects/AddRoleDialog';
 import { RoleEditor } from '../page-objects/RoleEditor';
 
-test('table', async ({ page }) => {
+test('data', async ({ page }) => {
   const editor = await RoleEditor.openRole(page);
   await expect(editor.main.locator.getByText('Roles').first()).toBeVisible();
   await editor.main.table.expectToHaveRows(['Employee', '', 'ManagerTeamleader'], ['Teamleader', '', ''], ['Manager', '', ''], ['HR Manager', 'Manager', '']);
 });
 
-test('select role', async ({ page }) => {
+test('save data', async ({ page, browserName }, testInfo) => {
   const editor = await RoleEditor.openRole(page);
+  const dialog = await editor.main.openAddRoleDialog();
+  const newRoleName = `role-${browserName}-${testInfo.retry}`;
+  await dialog.name.locator.fill(newRoleName);
+  await dialog.create.click();
+  const row = editor.main.table.lastRow();
+  await row.expectToHaveColumns(newRoleName, '', '');
+
+  await row.locator.click();
+  await expect(editor.detail.header).toHaveText(newRoleName);
+  await editor.detail.parent.select('Employee');
+  await row.expectToHaveColumns(newRoleName, 'Employee', '');
+
+  await page.reload();
+  await row.expectToHaveColumns(newRoleName, 'Employee', '');
+
+  await row.locator.click();
+  await editor.main.delete.click();
+  await expect(row.column(0).locator).not.toHaveText(newRoleName);
+});
+
+test('select role', async ({ page }) => {
+  const editor = await RoleEditor.openMock(page);
   await editor.main.table.expectToHaveNoSelection();
   await expect(editor.detail.header).toHaveText('Role');
 
@@ -56,7 +78,7 @@ test('add', async ({ page }) => {
 });
 
 test('empty', async ({ page }) => {
-  const editor = await RoleEditor.openRole(page);
+  const editor = await RoleEditor.openMock(page);
   await editor.main.table.clear();
   await expect(editor.main.locator).toBeHidden();
   const mainPanel = page.locator('.role-editor-main-panel');
