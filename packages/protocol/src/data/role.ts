@@ -25,14 +25,13 @@ export interface EditorFileContent {
 export interface RoleActionArgs {
   actionId: "openUrl";
   context: RoleContext;
-  payload: JsonNode;
+  payload: string;
 }
 export interface RoleContext {
   app: string;
   file: string;
   pmv: string;
 }
-export interface JsonNode {}
 export interface RoleEditorData {
   context: RoleContext;
   data: RoleData[];
