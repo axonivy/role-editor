@@ -1,6 +1,13 @@
 .role-editor-main-content {
   margin: var(--size-3);
+  height: 100%;
+  .role-editor-table-field {
+    height: 100%;
+  }
   .ui-table-cell:has(.ui-badge) {
     padding: var(--size-1);
+  }
+  .role-editor-table-container {
+    overflow-x: hidden;
   }
 }

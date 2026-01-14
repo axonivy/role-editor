@@ -145,19 +145,22 @@ export const Main = () => {
       <BasicField
         tabIndex={-1}
         ref={firstElement}
+        className='role-editor-table-field'
         label={t('label.roles')}
         control={<Controls table={table} deleteRole={table.getSelectedRowModel().flatRows.length > 0 ? deleteRole : undefined} />}
         onClick={event => event.stopPropagation()}
       >
         {globalFilter.filter}
-        <Table onKeyDown={e => handleKeyDown(e, () => setDetail(!detail))}>
-          <TableResizableHeader headerGroups={table.getHeaderGroups()} onClick={resetSelection} />
-          <TableBody>
-            {table.getRowModel().rows.map(row => (
-              <ValidationRow key={row.id} row={row} />
-            ))}
-          </TableBody>
-        </Table>
+        <div className='role-editor-table-container'>
+          <Table onKeyDown={e => handleKeyDown(e, () => setDetail(!detail))}>
+            <TableResizableHeader headerGroups={table.getHeaderGroups()} onClick={resetSelection} />
+            <TableBody>
+              {table.getRowModel().rows.map(row => (
+                <ValidationRow key={row.id} row={row} />
+              ))}
+            </TableBody>
+          </Table>
+        </div>
       </BasicField>
     </Flex>
   );
