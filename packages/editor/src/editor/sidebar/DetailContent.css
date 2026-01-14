@@ -1,3 +1,5 @@
 .role-editor-detail-content {
-  margin: var(--size-3);
+  padding: var(--size-3);
+  min-height: 0;
+  overflow: auto;
 }
