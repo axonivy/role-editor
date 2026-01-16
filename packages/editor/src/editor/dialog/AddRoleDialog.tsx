@@ -73,7 +73,7 @@ const AddDialogContent = ({ table, closeDialog }: { table: Table<RoleData>; clos
     setSelectedIndex(data.length);
   };
 
-  const enter = useHotkeys(['Enter', 'mod+Enter'], addRole, { scopes: DIALOG_HOTKEY_IDS, enableOnFormTags: true });
+  const enter = useHotkeys<HTMLDivElement>(['Enter', 'mod+Enter'], addRole, { scopes: DIALOG_HOTKEY_IDS, enableOnFormTags: true });
 
   return (
     <BasicDialogContent

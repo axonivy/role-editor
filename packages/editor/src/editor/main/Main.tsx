@@ -122,7 +122,7 @@ export const Main = () => {
 
   const hotkeys = useKnownHotkeys();
   const readonly = useReadonly();
-  const ref = useHotkeys(hotkeys.deleteRole.hotkey, () => deleteRole(), { scopes: ['global'], enabled: !readonly });
+  const ref = useHotkeys<HTMLDivElement>(hotkeys.deleteRole.hotkey, () => deleteRole(), { scopes: ['global'], enabled: !readonly });
   const firstElement = useRef<HTMLDivElement>(null);
   useHotkeys(hotkeys.focusMain.hotkey, () => firstElement.current?.focus(), { scopes: ['global'] });
 
