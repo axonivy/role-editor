@@ -2,10 +2,11 @@ import type { RoleContext, RoleData, RoleEditorData } from '@axonivy/role-editor
 import {
   Flex,
   PanelMessage,
+  ResizableGroup,
   ResizableHandle,
   ResizablePanel,
-  ResizablePanelGroup,
   Spinner,
+  useDefaultLayout,
   useHistoryData,
   type Unary
 } from '@axonivy/ui-components';
@@ -31,6 +32,7 @@ export const Editor = ({ context, directSave }: RoleEditorProps) => {
   const [detail, setDetail] = useState(true);
   const [initialData, setInitialData] = useState<Array<RoleData> | undefined>(undefined);
   const history = useHistoryData<Array<RoleData>>();
+  const { defaultLayout, onLayoutChanged } = useDefaultLayout({ groupId: 'role-editor-resize', storage: localStorage });
 
   const client = useClient();
   const queryClient = useQueryClient();
@@ -117,8 +119,8 @@ export const Editor = ({ context, directSave }: RoleEditorProps) => {
         helpUrl: data.helpUrl
       }}
     >
-      <ResizablePanelGroup direction='horizontal' autoSaveId='role-editor-resize' className='role-editor'>
-        <ResizablePanel id='main' order={2} defaultSize={50} minSize={30} className='role-editor-main-panel'>
+      <ResizableGroup orientation='horizontal' defaultLayout={defaultLayout} onLayoutChanged={onLayoutChanged} className='role-editor'>
+        <ResizablePanel id='main' defaultSize='50%' minSize='30%' className='role-editor-main-panel'>
           <Flex direction='column' className='panel'>
             <RoleToolbar />
             <ErrorBoundary FallbackComponent={ErrorFallback} resetKeys={[data]}>
@@ -129,14 +131,14 @@ export const Editor = ({ context, directSave }: RoleEditorProps) => {
         {detail && (
           <>
             <ResizableHandle />
-            <ResizablePanel id='properties' order={3} defaultSize={25} minSize={10} className='role-editor-detail-panel'>
+            <ResizablePanel id='properties' defaultSize='25%' minSize='20%' className='role-editor-detail-panel'>
               <Flex direction='column' className='panel'>
                 <Sidebar />
               </Flex>
             </ResizablePanel>
           </>
         )}
-      </ResizablePanelGroup>
+      </ResizableGroup>
     </AppProvider>
   );
 };
