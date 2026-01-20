@@ -68,9 +68,6 @@ importers:
       i18next-browser-languagedetector:
         specifier: ^8.0.4
         version: 8.2.0
-      path-browserify:
-        specifier: ^1.0.1
-        version: 1.0.1
       react:
         specifier: ^19.0.0
         version: 19.2.3

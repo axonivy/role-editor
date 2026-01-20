@@ -7,19 +7,9 @@ const ENGINE_URL = process.env.BASE_URL ?? 'http://localhost:8081/';
 export default defineConfig({
   plugins: [react(), svgr()],
   build: { outDir: 'build', chunkSizeWarningLimit: 5000, rollupOptions: { input: { index: './index.html', mock: './mock.html' } } },
-  server: {
-    port: 3000,
-    proxy: {
-      '/dev-workflow-ui': {
-        target: ENGINE_URL,
-        changeOrigin: true,
-        secure: false
-      }
-    }
-  },
+  server: { port: 3000 },
   resolve: {
     alias: {
-      path: 'path-browserify',
       '@axonivy/role-editor': resolve(__dirname, '../../packages/editor/src'),
       '@axonivy/role-editor-protocol': resolve(__dirname, '../../packages/protocol/src')
     }
