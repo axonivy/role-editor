@@ -23,19 +23,19 @@ import type {
 
 export class RoleClientJsonRpc extends BaseRpcClient implements RoleClient {
   protected onDataChangedEmitter = new Emitter<void>();
-  protected onValidaitonChangedEmitter = new Emitter<void>();
+  protected onValidationChangedEmitter = new Emitter<void>();
   onDataChanged: Event<void> = this.onDataChangedEmitter.event;
-  onValidationChanged: Event<void> = this.onValidaitonChangedEmitter.event;
+  onValidationChanged: Event<void> = this.onValidationChangedEmitter.event;
 
   protected override setupConnection(): void {
     super.setupConnection();
     this.toDispose.push(this.onDataChangedEmitter);
-    this.toDispose.push(this.onValidaitonChangedEmitter);
+    this.toDispose.push(this.onValidationChangedEmitter);
     this.onNotification('dataChanged', data => {
       this.onDataChangedEmitter.fire(data);
     });
     this.onNotification('validationChanged', data => {
-      this.onValidaitonChangedEmitter.fire(data);
+      this.onValidationChangedEmitter.fire(data);
     });
   }
 
