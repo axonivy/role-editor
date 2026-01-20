@@ -26,6 +26,7 @@ test('select', async () => {
   await userEvent.click(input);
   expect(screen.getByRole('listbox')).toBeVisible();
   expect(screen.getAllByRole('option')).toHaveLength(4);
+  expect(screen.getByRole('option', { name: 'Employee (Employee)' })).toHaveAttribute('data-selected');
   await userEvent.click(screen.getByRole('option', { name: 'Teamleader' }));
   expect(data()).toEqual(['Employee', 'Teamleader']);
 });
@@ -38,12 +39,16 @@ test('select can be handled with keyboard', async () => {
   expect(input).toHaveFocus();
   expect(screen.queryByRole('listbox')).not.toBeInTheDocument();
 
-  await userEvent.keyboard('T');
-  expect(screen.getByRole('listbox')).toBeInTheDocument();
-  expect(screen.getByRole('option', { name: 'Employee (Employee)' })).toHaveAttribute('data-selected');
   await userEvent.keyboard('[ArrowDown]');
+  expect(screen.getByRole('listbox')).toBeInTheDocument();
+  expect(screen.getAllByRole('option')).toHaveLength(4);
+  expect(screen.getByRole('option', { name: 'Employee (Employee)' })).toHaveAttribute('data-selected');
   expect(screen.getByRole('option', { name: 'Employee (Employee)' })).toHaveAttribute('data-highlighted');
-  await userEvent.keyboard('[ArrowDown][Enter]');
+  await userEvent.keyboard('t');
+  expect(screen.getAllByRole('option')).toHaveLength(1);
+  await userEvent.keyboard('[ArrowDown]');
+  expect(screen.getByRole('option', { name: 'Teamleader' })).toHaveAttribute('data-highlighted');
+  await userEvent.keyboard('[Enter]');
   expect(data()).toEqual(['Employee', 'Teamleader']);
 });
 
