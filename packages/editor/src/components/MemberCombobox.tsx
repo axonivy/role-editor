@@ -19,7 +19,7 @@ export default function MemberCombobox({ value, onChange, items }: MemberCombobo
   const { t } = useTranslation();
   const readonly = useReadonly();
   return (
-    <Combobox.Root items={items} multiple value={value} onValueChange={onChange} disabled={readonly}>
+    <Combobox.Root items={items.map(item => item.id)} multiple value={value} onValueChange={onChange} disabled={readonly}>
       <Combobox.Chips className={cn(styles.Chips, 'ui-combobox-root')} ref={containerRef}>
         <Combobox.Value>
           {(members: string[]) => (
@@ -44,12 +44,12 @@ export default function MemberCombobox({ value, onChange, items }: MemberCombobo
           <Combobox.Popup className={styles.Popup}>
             <Combobox.Empty className={styles.Empty}>{t('label.noRolesFound')}</Combobox.Empty>
             <Combobox.List>
-              {(member: RoleData) => (
-                <Combobox.Item key={member.id} className={styles.Item} value={member.id}>
+              {(memberId: string) => (
+                <Combobox.Item key={memberId} className={styles.Item} value={memberId}>
                   <Combobox.ItemIndicator className={styles.ItemIndicator}>
                     <IvyIcon icon={IvyIcons.Check} />
                   </Combobox.ItemIndicator>
-                  <div className={styles.ItemText}>{roleLabel(member)}</div>
+                  <div className={styles.ItemText}>{listItem(memberId, items)}</div>
                 </Combobox.Item>
               )}
             </Combobox.List>
@@ -59,3 +59,8 @@ export default function MemberCombobox({ value, onChange, items }: MemberCombobo
     </Combobox.Root>
   );
 }
+
+const listItem = (memberId: string, items: Array<RoleData>) => {
+  const member = items.find(role => role.id === memberId);
+  return member ? roleLabel(member) : memberId;
+};
