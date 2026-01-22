@@ -24,7 +24,8 @@ export default function MemberCombobox({ value, onChange, members }: MemberCombo
   const readonly = useReadonly();
   const items = useMemo(() => {
     const merged = [...members];
-    value.filter(v => !merged.map(item => item.id).includes(v)).forEach(v => merged.push({ id: v, displayName: v }));
+    const mergedIds = merged.map(item => item.id);
+    value.filter(v => !mergedIds.includes(v)).forEach(v => merged.push({ id: v, displayName: v }));
     return merged;
   }, [members, value]);
   return (
