@@ -22,8 +22,8 @@ import { useRef, useState, type ReactNode } from 'react';
 import { useTranslation } from 'react-i18next';
 import { RoleSelect } from '../../components/RoleSelect';
 import { useAppContext } from '../../context/AppContext';
+import { useValidateName } from '../../hooks/useValidateName';
 import { useKnownHotkeys } from '../../utils/useKnownHotkeys';
-import { useValidateName } from './useValidateName';
 
 const DIALOG_HOTKEY_IDS = ['addRoleDialog'];
 

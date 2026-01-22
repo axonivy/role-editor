@@ -1,6 +1,6 @@
 import type { RoleActionArgs } from '@axonivy/role-editor-protocol';
-import { useAppContext } from './AppContext';
-import { useClient } from './ClientContext';
+import { useAppContext } from '../context/AppContext';
+import { useClient } from '../context/ClientContext';
 
 export function useAction(actionId: RoleActionArgs['actionId']) {
   const { context } = useAppContext();
