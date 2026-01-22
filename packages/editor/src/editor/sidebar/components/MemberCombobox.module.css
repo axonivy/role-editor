@@ -41,19 +41,6 @@
   }
 }
 
-.ChipButton {
-  display: flex;
-  align-items: center;
-  background: none;
-  border: none;
-  padding: 0.125rem 0.25rem 0.125rem 0.5rem;
-  font-size: inherit;
-  color: inherit;
-  cursor: default;
-  flex: 1;
-  outline: 0;
-}
-
 .InputGroup {
   flex: 1;
 }
@@ -92,7 +79,9 @@
   overflow-y: auto;
   scroll-padding-block: 0.5rem;
   overscroll-behavior: contain;
-  transition: opacity 0.1s, transform 0.1s;
+  transition:
+    opacity 0.1s,
+    transform 0.1s;
   transform-origin: var(--transform-origin);
   box-shadow: var(--editor-shadow);
 
@@ -151,12 +140,6 @@
   align-items: center;
   width: 0.875rem;
   height: 0.875rem;
-}
-
-.ItemIndicatorIcon {
-  display: block;
-  width: 0.75rem;
-  height: 0.75rem;
 }
 
 .Empty:not(:empty) {

@@ -3,7 +3,7 @@ import { IvyIcons } from '@axonivy/ui-icons';
 import { Combobox } from '@base-ui/react/combobox';
 import { useMemo, useRef } from 'react';
 import { useTranslation } from 'react-i18next';
-import { roleLabel } from '../utils/role-label';
+import { roleLabel } from '../../../utils/role-label';
 import styles from './MemberCombobox.module.css';
 
 type ComboboxItem = {
