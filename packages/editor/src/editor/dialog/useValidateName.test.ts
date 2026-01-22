@@ -1,6 +1,6 @@
 import type { RoleData } from '@axonivy/role-editor-protocol';
 import { customRenderHook } from 'test-utils';
-import { useValidateAddRole } from './useValidateAddRole';
+import { useValidateName } from './useValidateName';
 
 const data: Array<RoleData> = [
   { id: 'Employee', displayName: 'Employee', members: ['Manager', 'Teamleader'], parent: '' },
@@ -10,16 +10,16 @@ const data: Array<RoleData> = [
 ];
 
 const validate = (name: string) => {
-  const { result } = customRenderHook(() => useValidateAddRole(name, data));
+  const { result } = customRenderHook(() => useValidateName(name, data));
   return result.current;
 };
 
 test('validate', () => {
-  expect(validate('Name').nameValidationMessage).toBeUndefined();
+  expect(validate('Name')).toBeUndefined();
   const emptyError = { message: 'Name cannot be empty.', variant: 'error' };
-  expect(validate('').nameValidationMessage).toEqual(emptyError);
-  expect(validate('   ').nameValidationMessage).toEqual(emptyError);
+  expect(validate('')).toEqual(emptyError);
+  expect(validate('   ')).toEqual(emptyError);
   const alreadyExistError = { message: 'Role already exists.', variant: 'error' };
-  expect(validate('Employee').nameValidationMessage).toEqual(alreadyExistError);
-  expect(validate('Teamleader    ').nameValidationMessage).toEqual(alreadyExistError);
+  expect(validate('Employee')).toEqual(alreadyExistError);
+  expect(validate('Teamleader    ')).toEqual(alreadyExistError);
 });

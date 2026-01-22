@@ -23,7 +23,7 @@ import { useTranslation } from 'react-i18next';
 import { RoleSelect } from '../../components/RoleSelect';
 import { useAppContext } from '../../context/AppContext';
 import { useKnownHotkeys } from '../../utils/useKnownHotkeys';
-import { useValidateAddRole } from './useValidateAddRole';
+import { useValidateName } from './useValidateName';
 
 const DIALOG_HOTKEY_IDS = ['addRoleDialog'];
 
@@ -54,7 +54,7 @@ const AddDialogContent = ({ table, closeDialog }: { table: Table<RoleData>; clos
   const { data, setData, setSelectedIndex } = useAppContext();
   const [name, setName] = useState('');
   const [parent, setParent] = useState('');
-  const { nameValidationMessage } = useValidateAddRole(name, data);
+  const nameValidationMessage = useValidateName(name, data);
   const allInputsValid = !nameValidationMessage;
 
   const addRole = (event: React.MouseEvent<HTMLButtonElement> | KeyboardEvent) => {

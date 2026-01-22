@@ -16,7 +16,7 @@ test('edit role', async ({ page }) => {
   await expect(editor.detail.header).toHaveText('Employee');
   await expect(editor.detail.content).toBeVisible();
 
-  await expect(editor.detail.name).toHaveValue('Employee');
+  await expect(editor.detail.name.locator).toHaveValue('Employee');
   await expect(editor.detail.displayName).toHaveValue('Employee role');
   await expect(editor.detail.parent.locator).toHaveText('');
   await editor.detail.members.expectToHaveValue('Manager,Teamleader');
@@ -36,12 +36,30 @@ test('update role references', async ({ page }) => {
 
   await editor.main.table.row(2).locator.click();
   await expect(editor.detail.header).toHaveText('Manager');
-  await expect(editor.detail.name).toHaveValue('Manager');
+  await expect(editor.detail.name.locator).toHaveValue('Manager');
 
-  await editor.detail.name.fill('Manager123');
+  await editor.detail.name.locator.fill('Manager123');
   await expect(editor.detail.header).toHaveText('Manager123');
-  await expect(editor.detail.name).toHaveValue('Manager123');
+  await expect(editor.detail.name.locator).toHaveValue('Manager123');
   await editor.main.table.row(0).expectToHaveColumns('Employee', '', 'Manager123Teamleader');
   await editor.main.table.row(2).expectToHaveColumns('Manager123', '', '');
   await editor.main.table.row(3).expectToHaveColumns('HR Manager', 'Manager123', '');
+});
+
+test('validate name on detail view', async ({ page }) => {
+  const editor = await RoleEditor.openMock(page);
+  await editor.main.table.row(1).locator.click();
+  await expect(editor.detail.header).toHaveText('Teamleader');
+  await expect(editor.detail.name.locator).toHaveValue('Teamleader');
+
+  await editor.detail.name.locator.clear();
+  await (await editor.detail.name.message()).expectToBeError('Name cannot be empty.');
+
+  // name already exists
+  await editor.detail.name.locator.fill('Manager');
+  await (await editor.detail.name.message()).expectToBeError('Role already exists.');
+
+  // valid name
+  await editor.detail.name.locator.fill('NewEmployee');
+  await expect((await editor.detail.name.message()).locator).toBeHidden();
 });
