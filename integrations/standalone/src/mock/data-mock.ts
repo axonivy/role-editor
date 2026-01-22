@@ -2,7 +2,7 @@ import type { RoleData } from '@axonivy/role-editor-protocol';
 
 export const data: Array<RoleData> = [
   { id: 'Employee', displayName: 'Employee role', members: ['Manager', 'Teamleader'], parent: '' },
-  { id: 'Teamleader', displayName: 'Teamleader', members: [], parent: '' },
+  { id: 'Teamleader', displayName: 'Teamleader', members: ['Unknown'], parent: '' },
   { id: 'Manager', displayName: 'Manager', members: [], parent: '' },
   { id: 'HR Manager', displayName: 'HR Manager', members: [], parent: 'Manager' },
   { id: 'Facility Manager', displayName: 'Facility Manager', members: [], parent: 'Manager' },

@@ -4,7 +4,7 @@ import { userEvent } from '@testing-library/user-event';
 import { customRender } from 'test-utils';
 import MemberCombobox from './MemberCombobox';
 
-const items: Array<RoleData> = [
+const members: Array<RoleData> = [
   { id: 'Employee', displayName: 'Employee', members: ['Manager', 'Teamleader'], parent: '' },
   { id: 'Teamleader', displayName: '', members: [], parent: '' },
   { id: 'Manager', displayName: 'Manager', members: [], parent: '' },
@@ -13,7 +13,7 @@ const items: Array<RoleData> = [
 
 const renderCombobox = (data?: Array<string>) => {
   let value = data ?? ['Employee'];
-  customRender(<MemberCombobox value={value} onChange={change => (value = change)} items={items} />);
+  customRender(<MemberCombobox value={value} onChange={change => (value = change)} members={members} />);
   return { data: () => value };
 };
 
@@ -53,12 +53,17 @@ test('select can be handled with keyboard', async () => {
 });
 
 test('unknown value', async () => {
-  renderCombobox(['unknown']);
+  const { data } = renderCombobox(['unknown']);
   const input = screen.getByRole('combobox');
   expect(input).toHaveAttribute('data-value', 'unknown');
+  await userEvent.click(input);
+  expect(screen.getByRole('listbox')).toBeVisible();
+  expect(screen.getAllByRole('option')).toHaveLength(5);
+  expect(screen.getByRole('option', { name: 'unknown (unknown)' })).toHaveAttribute('data-selected');
+  expect(data()).toEqual(['unknown']);
 });
 
 test('readonly mode', () => {
-  customRender(<MemberCombobox value={['Employee']} onChange={() => {}} items={items} />, { wrapperProps: { readonly: true } });
+  customRender(<MemberCombobox value={['Employee']} onChange={() => {}} members={members} />, { wrapperProps: { readonly: true } });
   expect(screen.getByRole('combobox')).toBeDisabled();
 });

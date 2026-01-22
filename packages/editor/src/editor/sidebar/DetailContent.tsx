@@ -60,7 +60,7 @@ export const DetailContent = () => {
         <MemberCombobox
           value={role.members}
           onChange={value => handleAttributeChange('members', value)}
-          items={data.filter(r => r.id !== role.id)}
+          members={data.filter(r => r.id !== role.id)}
         />
       </BasicField>
     </Flex>

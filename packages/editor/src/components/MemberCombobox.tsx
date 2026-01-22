@@ -1,29 +1,38 @@
-import type { RoleData } from '@axonivy/role-editor-protocol';
 import { Button, cn, Flex, IvyIcon, useField, useReadonly } from '@axonivy/ui-components';
 import { IvyIcons } from '@axonivy/ui-icons';
 import { Combobox } from '@base-ui/react/combobox';
-import * as React from 'react';
+import { useMemo, useRef } from 'react';
 import { useTranslation } from 'react-i18next';
 import { roleLabel } from '../utils/role-label';
 import styles from './MemberCombobox.module.css';
 
+type ComboboxItem = {
+  id: string;
+  displayName: string;
+};
+
 type MemberComboboxProps = {
   value: string[];
   onChange: (value: string[]) => void;
-  items: RoleData[];
+  members: ComboboxItem[];
 };
 
-export default function MemberCombobox({ value, onChange, items }: MemberComboboxProps) {
-  const containerRef = React.useRef<HTMLDivElement | null>(null);
+export default function MemberCombobox({ value, onChange, members }: MemberComboboxProps) {
+  const containerRef = useRef<HTMLDivElement | null>(null);
   const { inputProps } = useField();
   const { t } = useTranslation();
   const readonly = useReadonly();
+  const items = useMemo(() => {
+    const merged = [...members];
+    value.filter(v => !merged.map(item => item.id).includes(v)).forEach(v => merged.push({ id: v, displayName: v }));
+    return merged;
+  }, [members, value]);
   return (
     <Combobox.Root items={items.map(item => item.id)} multiple value={value} onValueChange={onChange} disabled={readonly}>
       <Combobox.Chips className={cn(styles.Chips, 'ui-combobox-root')} ref={containerRef}>
         <Combobox.Value>
           {(members: string[]) => (
-            <React.Fragment>
+            <>
               {members.map(member => (
                 <Combobox.Chip key={member} className={styles.Chip} aria-label={member}>
                   {member}
@@ -34,7 +43,7 @@ export default function MemberCombobox({ value, onChange, items }: MemberCombobo
                 <Combobox.Input className={styles.Input} {...inputProps} data-value={members.join(',')} />
                 <Combobox.Trigger className={styles.Trigger} render={<Button icon={IvyIcons.Chevron} rotate={90} />} />
               </Flex>
-            </React.Fragment>
+            </>
           )}
         </Combobox.Value>
       </Combobox.Chips>
@@ -60,7 +69,7 @@ export default function MemberCombobox({ value, onChange, items }: MemberCombobo
   );
 }
 
-const listItem = (memberId: string, items: Array<RoleData>) => {
+const listItem = (memberId: string, items: Array<ComboboxItem>) => {
   const member = items.find(role => role.id === memberId);
   return member ? roleLabel(member) : memberId;
 };
