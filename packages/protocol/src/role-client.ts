@@ -1,4 +1,5 @@
-import type { EditorFileContent, RoleActionArgs, RoleContext, RoleEditorData, RoleSaveDataArgs, ValidationResult } from './data/role';
+import type { EditorFileContent, RoleContext, RoleEditorData, RoleSaveDataArgs, ValidationResult } from './data/role';
+import type { RoleActionArgs } from './role-protocol';
 
 export interface Event<T> {
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
