@@ -61,15 +61,14 @@ const AddDialogContent = ({ table, closeDialog }: { table: Table<RoleData>; clos
     if (!allInputsValid) {
       return;
     }
-    const id = name.trim();
-    setData(old => [...old, { id, displayName: '', members: [], parent }]);
+    setData(old => [...old, { id: name.trim(), displayName: '', members: [], parent }]);
     if (!event.ctrlKey && !event.metaKey) {
       closeDialog();
     } else {
       setName('');
       nameInputRef.current?.focus();
     }
-    selectRow(table, id);
+    selectRow(table, data.length.toString());
     setSelectedIndex(data.length);
   };
 

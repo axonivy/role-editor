@@ -71,8 +71,7 @@ test('add', async ({ page }) => {
   await dialog.create.click();
   await editor.main.table.expectToHaveRowCount(13);
   await editor.main.table.row(12).expectToHaveColumns('NewRole', 'Manager', '');
-
-  await editor.main.table.row(12).locator.click();
+  await editor.main.table.row(12).expectToBeSelected();
   await editor.main.delete.click();
   await editor.main.table.expectToHaveRowCount(12);
 });
