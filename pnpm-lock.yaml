@@ -9,14 +9,14 @@ importers:
   .:
     devDependencies:
       '@axonivy/eslint-config':
-        specifier: ~14.0.0-next.992.e1774a3
-        version: 14.0.0-next.992.e1774a3(jiti@2.6.1)(typescript@5.9.3)
+        specifier: ~14.0.0-next.1001.2dd610f
+        version: 14.0.0-next.1001.2dd610f(jiti@2.6.1)(typescript@5.9.3)
       '@axonivy/prettier-config':
-        specifier: ~14.0.0-next.992.e1774a3
-        version: 14.0.0-next.992.e1774a3
+        specifier: ~14.0.0-next.1001.2dd610f
+        version: 14.0.0-next.1001.2dd610f
       '@axonivy/ts-config':
-        specifier: ~14.0.0-next.992.e1774a3
-        version: 14.0.0-next.992.e1774a3
+        specifier: ~14.0.0-next.1001.2dd610f
+        version: 14.0.0-next.1001.2dd610f
       '@lerna-lite/cli':
         specifier: ^4.0.0
         version: 4.11.0(@lerna-lite/publish@4.11.1(@types/node@24.10.11)(conventional-commits-filter@5.0.0))(@lerna-lite/version@4.11.1(@lerna-lite/publish@4.11.1(@types/node@24.10.11)(conventional-commits-filter@5.0.0))(@types/node@24.10.11)(conventional-commits-filter@5.0.0))(@types/node@24.10.11)
@@ -39,8 +39,8 @@ importers:
   integrations/standalone:
     dependencies:
       '@axonivy/jsonrpc':
-        specifier: ~14.0.0-next.992.e1774a3
-        version: 14.0.0-next.992.e1774a3
+        specifier: ~14.0.0-next.1001.2dd610f
+        version: 14.0.0-next.1001.2dd610f
       '@axonivy/role-editor':
         specifier: workspace:~14.0.0-next
         version: link:../../packages/editor
@@ -48,11 +48,11 @@ importers:
         specifier: workspace:~14.0.0-next
         version: link:../../packages/protocol
       '@axonivy/ui-components':
-        specifier: ~14.0.0-next.992.e1774a3
-        version: 14.0.0-next.992.e1774a3(@axonivy/ui-icons@14.0.0-next.992.e1774a3)(@types/react-dom@19.2.3(@types/react@19.2.13))(@types/react@19.2.13)(react-dom@19.2.4(react@19.2.4))(react@19.2.4)
+        specifier: ~14.0.0-next.1001.2dd610f
+        version: 14.0.0-next.1001.2dd610f(@axonivy/ui-icons@14.0.0-next.1001.2dd610f)(@types/react-dom@19.2.3(@types/react@19.2.13))(@types/react@19.2.13)(react-dom@19.2.4(react@19.2.4))(react@19.2.4)
       '@axonivy/ui-icons':
-        specifier: ~14.0.0-next.992.e1774a3
-        version: 14.0.0-next.992.e1774a3
+        specifier: ~14.0.0-next.1001.2dd610f
+        version: 14.0.0-next.1001.2dd610f
       '@tanstack/react-query':
         specifier: ^5.64
         version: 5.90.20(react@19.2.4)
@@ -116,14 +116,14 @@ importers:
         version: 16.5.4(i18next@25.8.4(typescript@5.9.3))(react-dom@19.2.4(react@19.2.4))(react@19.2.4)(typescript@5.9.3)
     devDependencies:
       '@axonivy/jsonrpc':
-        specifier: ~14.0.0-next.992.e1774a3
-        version: 14.0.0-next.992.e1774a3
+        specifier: ~14.0.0-next.1001.2dd610f
+        version: 14.0.0-next.1001.2dd610f
       '@axonivy/ui-components':
-        specifier: ~14.0.0-next.992.e1774a3
-        version: 14.0.0-next.992.e1774a3(@axonivy/ui-icons@14.0.0-next.992.e1774a3)(@types/react-dom@19.2.3(@types/react@19.2.13))(@types/react@19.2.13)(react-dom@19.2.4(react@19.2.4))(react@19.2.4)
+        specifier: ~14.0.0-next.1001.2dd610f
+        version: 14.0.0-next.1001.2dd610f(@axonivy/ui-icons@14.0.0-next.1001.2dd610f)(@types/react-dom@19.2.3(@types/react@19.2.13))(@types/react@19.2.13)(react-dom@19.2.4(react@19.2.4))(react@19.2.4)
       '@axonivy/ui-icons':
-        specifier: ~14.0.0-next.992.e1774a3
-        version: 14.0.0-next.992.e1774a3
+        specifier: ~14.0.0-next.1001.2dd610f
+        version: 14.0.0-next.1001.2dd610f
       '@tanstack/react-table':
         specifier: ^8.21.3
         version: 8.21.3(react-dom@19.2.4(react@19.2.4))(react@19.2.4)
@@ -207,26 +207,26 @@ packages:
   '@asamuzakjp/nwsapi@2.3.9':
     resolution: {integrity: sha512-n8GuYSrI9bF7FFZ/SjhwevlHc8xaVlb/7HmHelnc/PZXBD2ZR49NnN9sMMuDdEGPeeRQ5d0hqlSlEpgCX3Wl0Q==}
 
-  '@axonivy/eslint-config@14.0.0-next.992.e1774a3':
-    resolution: {integrity: sha512-MniajUkbAVy1xsMNY3xUVbwi5vF3AALZC2KuW3fEmcDasZM2UEOoI8q2gWRT/NiMCvzaf8K8H4uJ4T4wCuYKUA==}
+  '@axonivy/eslint-config@14.0.0-next.1001.2dd610f':
+    resolution: {integrity: sha512-GY6FPQIj1Y9IHlt/HEYJCIRckgzuTPCC8+3+vhKRhlL0fSMCAqL4PWZWIlVYldBPSmw3A80xUKLHQR/5vMZYtw==}
 
-  '@axonivy/jsonrpc@14.0.0-next.992.e1774a3':
-    resolution: {integrity: sha512-HaNyJ+LW1/r3Arb6CSFwRFKIAiC1H6R2FKk2LI7HCMhdchYX2hf+0ymcd2oarHV/cdUWtuVdEzEK5/zm1LyhYA==}
+  '@axonivy/jsonrpc@14.0.0-next.1001.2dd610f':
+    resolution: {integrity: sha512-2iPn7JXLG7Lf0uAbrFs1gOIJKo1zGwbJdOhJ4nv/Mul7Wibk5mV8QSS9EnEk9L/dwAB+RL5BAjQbJ3q9O/xi2A==}
 
-  '@axonivy/prettier-config@14.0.0-next.992.e1774a3':
-    resolution: {integrity: sha512-Ui9wsax6FbeELv4MQPJYg/i3uhDeV+aqni3649UqORgJuc+fpJR0sRnwbu307Z5BReu5jB2lKMHRu8qYhUaqmA==}
+  '@axonivy/prettier-config@14.0.0-next.1001.2dd610f':
+    resolution: {integrity: sha512-uYUAYeSkJLaePxUKciUj5dSbJP6nxgIJIGEflJuXaTPkxSu7AGuScn0kolAE5qVf99Yut4b8CJvwe2RV77WhPA==}
 
-  '@axonivy/ts-config@14.0.0-next.992.e1774a3':
-    resolution: {integrity: sha512-IEFjdO2sOtINgRcRkcP2B/9t/2rBxGf5FdBF6Px4vYqyEqpgef6mUzUCTxzy24F/oPRWm6vMvhF4pPJU6NnYMw==}
+  '@axonivy/ts-config@14.0.0-next.1001.2dd610f':
+    resolution: {integrity: sha512-OaVB2IQo6ADTHBm1TeE39MgkI/yVEHvxpm+RH00NT7TRMnj3OZULTO8XJ9tRkJSxFWf/SGp36SXMPshLMRVlDg==}
 
-  '@axonivy/ui-components@14.0.0-next.992.e1774a3':
-    resolution: {integrity: sha512-Ovu5KTL5r3Rgf8R/sKsX9Jm8BWKN094xkYE9eyCwZMQr1xWFgypcX5RYZ35NLnX88emGpKM8LvlLZetBXn48+w==}
+  '@axonivy/ui-components@14.0.0-next.1001.2dd610f':
+    resolution: {integrity: sha512-muXlS7d2LAxyIM26/BYZE5ii+51MAJ+7R9HCpCNwfsTVKXwvzoCyW73KzP2cABvieTF87rfU9hH/rczMl0Cr7w==}
     peerDependencies:
       '@axonivy/ui-icons': ~14.0.0-next
       react: ^19.0
 
-  '@axonivy/ui-icons@14.0.0-next.992.e1774a3':
-    resolution: {integrity: sha512-E095DqqkkXuhXmAoYSqQmAnmUMPtR9AoABIbGOz0trfS9smD7BtSZhyv6WRsyczOrX7x6vitGWh0FJ75Lam8dw==}
+  '@axonivy/ui-icons@14.0.0-next.1001.2dd610f':
+    resolution: {integrity: sha512-l1daVsWEmiOpzOxG1lM5UmmIEPlUZaPddYNL21bcgck3IAS72wNPc0UmUwwKnRNxYQUYHIY1jJmkLE308cnLkA==}
 
   '@babel/code-frame@7.29.0':
     resolution: {integrity: sha512-9NhCeYjq9+3uxgdtp20LSiJXJvN0FeCtNGpJxuMFZ1Kv3cWUNb6DOhJwUvcVCzKGR66cw4njwM6hrJLqgOwbcw==}
@@ -829,8 +829,8 @@ packages:
       '@types/node':
         optional: true
 
-  '@internationalized/date@3.10.1':
-    resolution: {integrity: sha512-oJrXtQiAXLvT9clCf1K4kxp3eKsQhIaZqxEyowkBcsvZDdZkbWrVmnGknxs5flTD0VGsxrxKgBCZty1EzoiMzA==}
+  '@internationalized/date@3.11.0':
+    resolution: {integrity: sha512-BOx5huLAWhicM9/ZFs84CzP+V3gBW6vlpM02yzsdYC7TGlZJX1OJiEEHcSayF00Z+3jLlm4w79amvSt6RqKN3Q==}
 
   '@internationalized/message@3.1.8':
     resolution: {integrity: sha512-Rwk3j/TlYZhn3HQ6PyXUV0XP9Uv42jqZGNegt0BXlxjE6G3+LwHjbQZAGHhCnCPdaA6Tvd3ma/7QzLlLkJxAWA==}
@@ -1546,26 +1546,26 @@ packages:
   '@radix-ui/rect@1.1.1':
     resolution: {integrity: sha512-HPwpGIzkl28mWyZqG52jiqDJ12waP11Pa1lGoiyUkIEuMLBP0oeK/C89esbXrxsky5we7dfd8U58nm0SgAWpVw==}
 
-  '@react-aria/dnd@3.11.4':
-    resolution: {integrity: sha512-dBrnM33Kmk76F+Pknh2WfSLIX4dsYwFzWJUIABJCPmPc80hTG0so7mfqH45ba759/6ERMfXXoodZPLtypOjYPg==}
+  '@react-aria/dnd@3.11.5':
+    resolution: {integrity: sha512-3IGrABfK8Cf6/b/uEmGEDGeubWKMUK3umWunF/tdkWBnIaxpdj4gRkWFMw7siWQYnqir6AN567nrWXtHFcLKsA==}
     peerDependencies:
       react: ^16.8.0 || ^17.0.0-rc.1 || ^18.0.0 || ^19.0.0-rc.1
       react-dom: ^16.8.0 || ^17.0.0-rc.1 || ^18.0.0 || ^19.0.0-rc.1
 
-  '@react-aria/focus@3.21.3':
-    resolution: {integrity: sha512-FsquWvjSCwC2/sBk4b+OqJyONETUIXQ2vM0YdPAuC+QFQh2DT6TIBo6dOZVSezlhudDla69xFBd6JvCFq1AbUw==}
+  '@react-aria/focus@3.21.4':
+    resolution: {integrity: sha512-6gz+j9ip0/vFRTKJMl3R30MHopn4i19HqqLfSQfElxJD+r9hBnYG1Q6Wd/kl/WRR1+CALn2F+rn06jUnf5sT8Q==}
     peerDependencies:
       react: ^16.8.0 || ^17.0.0-rc.1 || ^18.0.0 || ^19.0.0-rc.1
       react-dom: ^16.8.0 || ^17.0.0-rc.1 || ^18.0.0 || ^19.0.0-rc.1
 
-  '@react-aria/i18n@3.12.14':
-    resolution: {integrity: sha512-zYvs1FlLamFD49uneX3i5mPHrAsB3OjVpSWApTcPw8ydxOaphQDp/Q1aqrbcxlrQCcxZdXWHuvLlbkNR4+8jzw==}
+  '@react-aria/i18n@3.12.15':
+    resolution: {integrity: sha512-3CrAN7ORVHrckvTmbPq76jFZabqq+rScosGT5+ElircJ5rF5+JcdT99Hp5Xg6R10jk74e8G3xiqdYsUd+7iJMA==}
     peerDependencies:
       react: ^16.8.0 || ^17.0.0-rc.1 || ^18.0.0 || ^19.0.0-rc.1
       react-dom: ^16.8.0 || ^17.0.0-rc.1 || ^18.0.0 || ^19.0.0-rc.1
 
-  '@react-aria/interactions@3.26.0':
-    resolution: {integrity: sha512-AAEcHiltjfbmP1i9iaVw34Mb7kbkiHpYdqieWufldh4aplWgsF11YQZOfaCJW4QoR2ML4Zzoa9nfFwLXA52R7Q==}
+  '@react-aria/interactions@3.27.0':
+    resolution: {integrity: sha512-D27pOy+0jIfHK60BB26AgqjjRFOYdvVSkwC31b2LicIzRCSPOSP06V4gMHuGmkhNTF4+YWDi1HHYjxIvMeiSlA==}
     peerDependencies:
       react: ^16.8.0 || ^17.0.0-rc.1 || ^18.0.0 || ^19.0.0-rc.1
       react-dom: ^16.8.0 || ^17.0.0-rc.1 || ^18.0.0 || ^19.0.0-rc.1
@@ -1573,8 +1573,8 @@ packages:
   '@react-aria/live-announcer@3.4.4':
     resolution: {integrity: sha512-PTTBIjNRnrdJOIRTDGNifY2d//kA7GUAwRFJNOEwSNG4FW+Bq9awqLiflw0JkpyB0VNIwou6lqKPHZVLsGWOXA==}
 
-  '@react-aria/overlays@3.31.0':
-    resolution: {integrity: sha512-Vq41X1s8XheGIhGbbuqRJslJEX08qmMVX//dwuBaFX9T18mMR04tumKOMxp8Lz+vqwdGLvjNUYDMcgolL+AMjw==}
+  '@react-aria/overlays@3.31.1':
+    resolution: {integrity: sha512-U5BedzcXU97U5PWm4kIPnNoVpAs9KjTYfbkGx33vapmTVpGYhQyYW9eg6zW2E8ZKsyFJtQ/jkQnbWGen97aHSQ==}
     peerDependencies:
       react: ^16.8.0 || ^17.0.0-rc.1 || ^18.0.0 || ^19.0.0-rc.1
       react-dom: ^16.8.0 || ^17.0.0-rc.1 || ^18.0.0 || ^19.0.0-rc.1
@@ -1585,38 +1585,38 @@ packages:
     peerDependencies:
       react: ^16.8.0 || ^17.0.0-rc.1 || ^18.0.0 || ^19.0.0-rc.1
 
-  '@react-aria/utils@3.32.0':
-    resolution: {integrity: sha512-/7Rud06+HVBIlTwmwmJa2W8xVtgxgzm0+kLbuFooZRzKDON6hhozS1dOMR/YLMxyJOaYOTpImcP4vRR9gL1hEg==}
+  '@react-aria/utils@3.33.0':
+    resolution: {integrity: sha512-yvz7CMH8d2VjwbSa5nGXqjU031tYhD8ddax95VzJsHSPyqHDEGfxul8RkhGV6oO7bVqZxVs6xY66NIgae+FHjw==}
     peerDependencies:
       react: ^16.8.0 || ^17.0.0-rc.1 || ^18.0.0 || ^19.0.0-rc.1
       react-dom: ^16.8.0 || ^17.0.0-rc.1 || ^18.0.0 || ^19.0.0-rc.1
 
-  '@react-aria/visually-hidden@3.8.29':
-    resolution: {integrity: sha512-1joCP+MHBLd+YA6Gb08nMFfDBhOF0Kh1gR1SA8zoxEB5RMfQEEkufIB8k0GGwvHGSCK3gFyO8UAVsD0+rRYEyg==}
+  '@react-aria/visually-hidden@3.8.30':
+    resolution: {integrity: sha512-iY44USEU8sJy0NOJ/sTDn3YlspbhHuVG3nx2YYrzfmxbS3i+lNwkCfG8kJ77dtmbuDLIdBGKENjGkbcwz3kiJg==}
     peerDependencies:
       react: ^16.8.0 || ^17.0.0-rc.1 || ^18.0.0 || ^19.0.0-rc.1
       react-dom: ^16.8.0 || ^17.0.0-rc.1 || ^18.0.0 || ^19.0.0-rc.1
 
-  '@react-stately/collections@3.12.8':
-    resolution: {integrity: sha512-AceJYLLXt1Y2XIcOPi6LEJSs4G/ubeYW3LqOCQbhfIgMaNqKfQMIfagDnPeJX9FVmPFSlgoCBxb1pTJW2vjCAQ==}
+  '@react-stately/collections@3.12.9':
+    resolution: {integrity: sha512-2jywPMhVgMOh0XtutxPqIxFCIiLOnL/GXIrRKoBEo8M3Q24NoMRBavUrn9RTvjqNnec1i/8w1/8sq8cmCKEohA==}
     peerDependencies:
       react: ^16.8.0 || ^17.0.0-rc.1 || ^18.0.0 || ^19.0.0-rc.1
 
-  '@react-stately/dnd@3.7.2':
-    resolution: {integrity: sha512-tr5nNgrLMn5GV308K1f010XUZ2j8CApqHrrcjg5fa2AnpO2gECcOf+UEnAvoFNUsvknje4iPX8y0/0No2ZHsgA==}
+  '@react-stately/dnd@3.7.3':
+    resolution: {integrity: sha512-yBtzAimyYvJWnzP80Scx7l559+43TVSyjaMpUR6/s2IjqD3XoPKgPsv7KaFUmygBTkCBGBFJn404rYgMCOsu3g==}
     peerDependencies:
       react: ^16.8.0 || ^17.0.0-rc.1 || ^18.0.0 || ^19.0.0-rc.1
 
   '@react-stately/flags@3.1.2':
     resolution: {integrity: sha512-2HjFcZx1MyQXoPqcBGALwWWmgFVUk2TuKVIQxCbRq7fPyWXIl6VHcakCLurdtYC2Iks7zizvz0Idv48MQ38DWg==}
 
-  '@react-stately/overlays@3.6.21':
-    resolution: {integrity: sha512-7f25H1PS2g+SNvuWPEW30pSGqYNHxesCP4w+1RcV/XV1oQI7oP5Ji2WfI0QsJEFc9wP/ZO1pyjHNKpfLI3O88g==}
+  '@react-stately/overlays@3.6.22':
+    resolution: {integrity: sha512-sWBnuy5dqVp8d+1e+ABTRVB3YBcOW86/90pF5PWY44au3bUFXVSUBO2QMdR/6JtojDoPRmrjufonI19/Zs/20w==}
     peerDependencies:
       react: ^16.8.0 || ^17.0.0-rc.1 || ^18.0.0 || ^19.0.0-rc.1
 
-  '@react-stately/selection@3.20.7':
-    resolution: {integrity: sha512-NkiRsNCfORBIHNF1bCavh4Vvj+Yd5NffE10iXtaFuhF249NlxLynJZmkcVCqNP9taC2pBIHX00+9tcBgxhG+mA==}
+  '@react-stately/selection@3.20.8':
+    resolution: {integrity: sha512-V1kRN1NLW+i/3Xv+Q0pN9OzuM0zFEW9mdXOOOq7l+YL6hFjqIjttT2/q4KoyiNV3W0hfoRFSTQ7XCgqnqtwEng==}
     peerDependencies:
       react: ^16.8.0 || ^17.0.0-rc.1 || ^18.0.0 || ^19.0.0-rc.1
 
@@ -1625,18 +1625,18 @@ packages:
     peerDependencies:
       react: ^16.8.0 || ^17.0.0-rc.1 || ^18.0.0 || ^19.0.0-rc.1
 
-  '@react-types/button@3.14.1':
-    resolution: {integrity: sha512-D8C4IEwKB7zEtiWYVJ3WE/5HDcWlze9mLWQ5hfsBfpePyWCgO3bT/+wjb/7pJvcAocrkXo90QrMm85LcpBtrpg==}
+  '@react-types/button@3.15.0':
+    resolution: {integrity: sha512-X/K2/Oeuq7Hi8nMIzx4/YlZuvWFiSOHZt27p4HmThCnNO/9IDFPmvPrpkYjWN5eN9Nuk+P5vZUb4A7QJgYpvGA==}
     peerDependencies:
       react: ^16.8.0 || ^17.0.0-rc.1 || ^18.0.0 || ^19.0.0-rc.1
 
-  '@react-types/overlays@3.9.2':
-    resolution: {integrity: sha512-Q0cRPcBGzNGmC8dBuHyoPR7N3057KTS5g+vZfQ53k8WwmilXBtemFJPLsogJbspuewQ/QJ3o2HYsp2pne7/iNw==}
+  '@react-types/overlays@3.9.3':
+    resolution: {integrity: sha512-LzetThNNk8T26pQRbs1I7+isuFhdFYREy7wJCsZmbB0FnZgCukGTfOtThZWv+ry11veyVJiX68jfl4SV6ACTWA==}
     peerDependencies:
       react: ^16.8.0 || ^17.0.0-rc.1 || ^18.0.0 || ^19.0.0-rc.1
 
-  '@react-types/shared@3.32.1':
-    resolution: {integrity: sha512-famxyD5emrGGpFuUlgOP6fVW2h/ZaF405G5KDi3zPHzyjAWys/8W6NAVJtNbkCkhedmvL0xOhvt8feGXyXaw5w==}
+  '@react-types/shared@3.33.0':
+    resolution: {integrity: sha512-xuUpP6MyuPmJtzNOqF5pzFUIHH2YogyOQfUQHag54PRmWB7AbjuGWBUv0l1UDmz6+AbzAYGmDVAzcRDOu2PFpw==}
     peerDependencies:
       react: ^16.8.0 || ^17.0.0-rc.1 || ^18.0.0 || ^19.0.0-rc.1
 
@@ -2004,10 +2004,14 @@ packages:
   '@swc/types@0.1.25':
     resolution: {integrity: sha512-iAoY/qRhNH8a/hBvm3zKj9qQ4oc2+3w1unPJa2XvTK3XjeLXtzcCingVPw/9e5mn1+0yPqxcBGp9Jf0pkfMb1g==}
 
-  '@tanstack/eslint-plugin-query@5.91.3':
-    resolution: {integrity: sha512-5GMGZMYFK9dOvjpdedjJs4hU40EdPuO2AjzObQzP7eOSsikunCfrXaU3oNGXSsvoU9ve1Z1xQZZuDyPi0C1M7Q==}
+  '@tanstack/eslint-plugin-query@5.91.4':
+    resolution: {integrity: sha512-8a+GAeR7oxJ5laNyYBQ6miPK09Hi18o5Oie/jx8zioXODv/AUFLZQecKabPdpQSLmuDXEBPKFh+W5DKbWlahjQ==}
     peerDependencies:
       eslint: ^8.57.0 || ^9.0.0
+      typescript: ^5.0.0
+    peerDependenciesMeta:
+      typescript:
+        optional: true
 
   '@tanstack/query-core@5.90.20':
     resolution: {integrity: sha512-OMD2HLpNouXEfZJWcKeVKUgQ5n+n3A2JFmBaScpNDUqSrQSjiveC7dKMe53uJUg1nDG16ttFPz2xfilz6i2uVg==}
@@ -3961,8 +3965,8 @@ packages:
     peerDependencies:
       react: ^18.0.0 || ^19.0.0
 
-  react-hotkeys-hook@5.2.3:
-    resolution: {integrity: sha512-Q27F8EuImYJOVSXAjSQrQPj9cx4GSNY+WdSdk5tSNN085H8/a00W6LZp0PrytEDwF6iT0pGTJeVEDKPRpEK2Bg==}
+  react-hotkeys-hook@5.2.4:
+    resolution: {integrity: sha512-BgKg+A1+TawkYluh5Bo4cTmcgMN5L29uhJbDUQdHwPX+qgXRjIPYU5kIDHyxnAwCkCBiu9V5OpB2mpyeluVF2A==}
     peerDependencies:
       react: '>=16.8.0'
       react-dom: '>=16.8.0'
@@ -4016,8 +4020,8 @@ packages:
       '@types/react':
         optional: true
 
-  react-resizable-panels@4.5.5:
-    resolution: {integrity: sha512-C1N+mcHF5lOkELEx8QpFsiHCibOCu82LVqULp2q00/88Mcofqp1oy4tZv0H4eArzWJsCo6RZ0jeTb0/4tpVlNg==}
+  react-resizable-panels@4.6.0:
+    resolution: {integrity: sha512-I0GUBybvHQ9xde06MH1pmhnnoZfj3lytVhA8r9Pu6r6zunoUfVRy3tU1XT9lE83yUfjlCIMaXKxPrQMmjANIkA==}
     peerDependencies:
       react: ^18.0.0 || ^19.0.0
       react-dom: ^18.0.0 || ^19.0.0
@@ -4828,10 +4832,10 @@ snapshots:
 
   '@asamuzakjp/nwsapi@2.3.9': {}
 
-  '@axonivy/eslint-config@14.0.0-next.992.e1774a3(jiti@2.6.1)(typescript@5.9.3)':
+  '@axonivy/eslint-config@14.0.0-next.1001.2dd610f(jiti@2.6.1)(typescript@5.9.3)':
     dependencies:
       '@eslint/js': 9.39.2
-      '@tanstack/eslint-plugin-query': 5.91.3(eslint@9.39.2(jiti@2.6.1))(typescript@5.9.3)
+      '@tanstack/eslint-plugin-query': 5.91.4(eslint@9.39.2(jiti@2.6.1))(typescript@5.9.3)
       '@typescript-eslint/eslint-plugin': 8.54.0(@typescript-eslint/parser@8.54.0(eslint@9.39.2(jiti@2.6.1))(typescript@5.9.3))(eslint@9.39.2(jiti@2.6.1))(typescript@5.9.3)
       '@typescript-eslint/parser': 8.54.0(eslint@9.39.2(jiti@2.6.1))(typescript@5.9.3)
       eslint: 9.39.2(jiti@2.6.1)
@@ -4848,19 +4852,19 @@ snapshots:
       - supports-color
       - typescript
 
-  '@axonivy/jsonrpc@14.0.0-next.992.e1774a3':
+  '@axonivy/jsonrpc@14.0.0-next.1001.2dd610f':
     dependencies:
       vscode-jsonrpc: 8.2.1
 
-  '@axonivy/prettier-config@14.0.0-next.992.e1774a3':
+  '@axonivy/prettier-config@14.0.0-next.1001.2dd610f':
     dependencies:
       prettier: 3.8.1
 
-  '@axonivy/ts-config@14.0.0-next.992.e1774a3': {}
+  '@axonivy/ts-config@14.0.0-next.1001.2dd610f': {}
 
-  '@axonivy/ui-components@14.0.0-next.992.e1774a3(@axonivy/ui-icons@14.0.0-next.992.e1774a3)(@types/react-dom@19.2.3(@types/react@19.2.13))(@types/react@19.2.13)(react-dom@19.2.4(react@19.2.4))(react@19.2.4)':
+  '@axonivy/ui-components@14.0.0-next.1001.2dd610f(@axonivy/ui-icons@14.0.0-next.1001.2dd610f)(@types/react-dom@19.2.3(@types/react@19.2.13))(@types/react@19.2.13)(react-dom@19.2.4(react@19.2.4))(react@19.2.4)':
     dependencies:
-      '@axonivy/ui-icons': 14.0.0-next.992.e1774a3
+      '@axonivy/ui-icons': 14.0.0-next.1001.2dd610f
       '@radix-ui/react-accordion': 1.2.12(@types/react-dom@19.2.3(@types/react@19.2.13))(@types/react@19.2.13)(react-dom@19.2.4(react@19.2.4))(react@19.2.4)
       '@radix-ui/react-checkbox': 1.3.3(@types/react-dom@19.2.3(@types/react@19.2.13))(@types/react@19.2.13)(react-dom@19.2.4(react@19.2.4))(react@19.2.4)
       '@radix-ui/react-collapsible': 1.1.12(@types/react-dom@19.2.3(@types/react@19.2.13))(@types/react@19.2.13)(react-dom@19.2.4(react@19.2.4))(react@19.2.4)
@@ -4876,20 +4880,20 @@ snapshots:
       '@radix-ui/react-tabs': 1.1.13(@types/react-dom@19.2.3(@types/react@19.2.13))(@types/react@19.2.13)(react-dom@19.2.4(react@19.2.4))(react@19.2.4)
       '@radix-ui/react-toggle-group': 1.1.11(@types/react-dom@19.2.3(@types/react@19.2.13))(@types/react@19.2.13)(react-dom@19.2.4(react@19.2.4))(react@19.2.4)
       '@radix-ui/react-tooltip': 1.2.8(@types/react-dom@19.2.3(@types/react@19.2.13))(@types/react@19.2.13)(react-dom@19.2.4(react@19.2.4))(react@19.2.4)
-      '@react-aria/dnd': 3.11.4(react-dom@19.2.4(react@19.2.4))(react@19.2.4)
+      '@react-aria/dnd': 3.11.5(react-dom@19.2.4(react@19.2.4))(react@19.2.4)
       '@tanstack/react-table': 8.21.3(react-dom@19.2.4(react@19.2.4))(react@19.2.4)
       clsx: 2.1.1
       downshift: 9.0.13(react@19.2.4)
       react: 19.2.4
-      react-hotkeys-hook: 5.2.3(react-dom@19.2.4(react@19.2.4))(react@19.2.4)
-      react-resizable-panels: 4.5.5(react-dom@19.2.4(react@19.2.4))(react@19.2.4)
+      react-hotkeys-hook: 5.2.4(react-dom@19.2.4(react@19.2.4))(react@19.2.4)
+      react-resizable-panels: 4.6.0(react-dom@19.2.4(react@19.2.4))(react@19.2.4)
       sonner: 2.0.7(react-dom@19.2.4(react@19.2.4))(react@19.2.4)
     transitivePeerDependencies:
       - '@types/react'
       - '@types/react-dom'
       - react-dom
 
-  '@axonivy/ui-icons@14.0.0-next.992.e1774a3': {}
+  '@axonivy/ui-icons@14.0.0-next.1001.2dd610f': {}
 
   '@babel/code-frame@7.29.0':
     dependencies:
@@ -5416,7 +5420,7 @@ snapshots:
     optionalDependencies:
       '@types/node': 24.10.11
 
-  '@internationalized/date@3.10.1':
+  '@internationalized/date@3.11.0':
     dependencies:
       '@swc/helpers': 0.5.17
 
@@ -6349,51 +6353,51 @@ snapshots:
 
   '@radix-ui/rect@1.1.1': {}
 
-  '@react-aria/dnd@3.11.4(react-dom@19.2.4(react@19.2.4))(react@19.2.4)':
+  '@react-aria/dnd@3.11.5(react-dom@19.2.4(react@19.2.4))(react@19.2.4)':
     dependencies:
       '@internationalized/string': 3.2.7
-      '@react-aria/i18n': 3.12.14(react-dom@19.2.4(react@19.2.4))(react@19.2.4)
-      '@react-aria/interactions': 3.26.0(react-dom@19.2.4(react@19.2.4))(react@19.2.4)
+      '@react-aria/i18n': 3.12.15(react-dom@19.2.4(react@19.2.4))(react@19.2.4)
+      '@react-aria/interactions': 3.27.0(react-dom@19.2.4(react@19.2.4))(react@19.2.4)
       '@react-aria/live-announcer': 3.4.4
-      '@react-aria/overlays': 3.31.0(react-dom@19.2.4(react@19.2.4))(react@19.2.4)
-      '@react-aria/utils': 3.32.0(react-dom@19.2.4(react@19.2.4))(react@19.2.4)
-      '@react-stately/collections': 3.12.8(react@19.2.4)
-      '@react-stately/dnd': 3.7.2(react@19.2.4)
-      '@react-types/button': 3.14.1(react@19.2.4)
-      '@react-types/shared': 3.32.1(react@19.2.4)
+      '@react-aria/overlays': 3.31.1(react-dom@19.2.4(react@19.2.4))(react@19.2.4)
+      '@react-aria/utils': 3.33.0(react-dom@19.2.4(react@19.2.4))(react@19.2.4)
+      '@react-stately/collections': 3.12.9(react@19.2.4)
+      '@react-stately/dnd': 3.7.3(react@19.2.4)
+      '@react-types/button': 3.15.0(react@19.2.4)
+      '@react-types/shared': 3.33.0(react@19.2.4)
       '@swc/helpers': 0.5.17
       react: 19.2.4
       react-dom: 19.2.4(react@19.2.4)
 
-  '@react-aria/focus@3.21.3(react-dom@19.2.4(react@19.2.4))(react@19.2.4)':
+  '@react-aria/focus@3.21.4(react-dom@19.2.4(react@19.2.4))(react@19.2.4)':
     dependencies:
-      '@react-aria/interactions': 3.26.0(react-dom@19.2.4(react@19.2.4))(react@19.2.4)
-      '@react-aria/utils': 3.32.0(react-dom@19.2.4(react@19.2.4))(react@19.2.4)
-      '@react-types/shared': 3.32.1(react@19.2.4)
+      '@react-aria/interactions': 3.27.0(react-dom@19.2.4(react@19.2.4))(react@19.2.4)
+      '@react-aria/utils': 3.33.0(react-dom@19.2.4(react@19.2.4))(react@19.2.4)
+      '@react-types/shared': 3.33.0(react@19.2.4)
       '@swc/helpers': 0.5.17
       clsx: 2.1.1
       react: 19.2.4
       react-dom: 19.2.4(react@19.2.4)
 
-  '@react-aria/i18n@3.12.14(react-dom@19.2.4(react@19.2.4))(react@19.2.4)':
+  '@react-aria/i18n@3.12.15(react-dom@19.2.4(react@19.2.4))(react@19.2.4)':
     dependencies:
-      '@internationalized/date': 3.10.1
+      '@internationalized/date': 3.11.0
       '@internationalized/message': 3.1.8
       '@internationalized/number': 3.6.5
       '@internationalized/string': 3.2.7
       '@react-aria/ssr': 3.9.10(react@19.2.4)
-      '@react-aria/utils': 3.32.0(react-dom@19.2.4(react@19.2.4))(react@19.2.4)
-      '@react-types/shared': 3.32.1(react@19.2.4)
+      '@react-aria/utils': 3.33.0(react-dom@19.2.4(react@19.2.4))(react@19.2.4)
+      '@react-types/shared': 3.33.0(react@19.2.4)
       '@swc/helpers': 0.5.17
       react: 19.2.4
       react-dom: 19.2.4(react@19.2.4)
 
-  '@react-aria/interactions@3.26.0(react-dom@19.2.4(react@19.2.4))(react@19.2.4)':
+  '@react-aria/interactions@3.27.0(react-dom@19.2.4(react@19.2.4))(react@19.2.4)':
     dependencies:
       '@react-aria/ssr': 3.9.10(react@19.2.4)
-      '@react-aria/utils': 3.32.0(react-dom@19.2.4(react@19.2.4))(react@19.2.4)
+      '@react-aria/utils': 3.33.0(react-dom@19.2.4(react@19.2.4))(react@19.2.4)
       '@react-stately/flags': 3.1.2
-      '@react-types/shared': 3.32.1(react@19.2.4)
+      '@react-types/shared': 3.33.0(react@19.2.4)
       '@swc/helpers': 0.5.17
       react: 19.2.4
       react-dom: 19.2.4(react@19.2.4)
@@ -6402,18 +6406,18 @@ snapshots:
     dependencies:
       '@swc/helpers': 0.5.17
 
-  '@react-aria/overlays@3.31.0(react-dom@19.2.4(react@19.2.4))(react@19.2.4)':
+  '@react-aria/overlays@3.31.1(react-dom@19.2.4(react@19.2.4))(react@19.2.4)':
     dependencies:
-      '@react-aria/focus': 3.21.3(react-dom@19.2.4(react@19.2.4))(react@19.2.4)
-      '@react-aria/i18n': 3.12.14(react-dom@19.2.4(react@19.2.4))(react@19.2.4)
-      '@react-aria/interactions': 3.26.0(react-dom@19.2.4(react@19.2.4))(react@19.2.4)
+      '@react-aria/focus': 3.21.4(react-dom@19.2.4(react@19.2.4))(react@19.2.4)
+      '@react-aria/i18n': 3.12.15(react-dom@19.2.4(react@19.2.4))(react@19.2.4)
+      '@react-aria/interactions': 3.27.0(react-dom@19.2.4(react@19.2.4))(react@19.2.4)
       '@react-aria/ssr': 3.9.10(react@19.2.4)
-      '@react-aria/utils': 3.32.0(react-dom@19.2.4(react@19.2.4))(react@19.2.4)
-      '@react-aria/visually-hidden': 3.8.29(react-dom@19.2.4(react@19.2.4))(react@19.2.4)
-      '@react-stately/overlays': 3.6.21(react@19.2.4)
-      '@react-types/button': 3.14.1(react@19.2.4)
-      '@react-types/overlays': 3.9.2(react@19.2.4)
-      '@react-types/shared': 3.32.1(react@19.2.4)
+      '@react-aria/utils': 3.33.0(react-dom@19.2.4(react@19.2.4))(react@19.2.4)
+      '@react-aria/visually-hidden': 3.8.30(react-dom@19.2.4(react@19.2.4))(react@19.2.4)
+      '@react-stately/overlays': 3.6.22(react@19.2.4)
+      '@react-types/button': 3.15.0(react@19.2.4)
+      '@react-types/overlays': 3.9.3(react@19.2.4)
+      '@react-types/shared': 3.33.0(react@19.2.4)
       '@swc/helpers': 0.5.17
       react: 19.2.4
       react-dom: 19.2.4(react@19.2.4)
@@ -6423,36 +6427,36 @@ snapshots:
       '@swc/helpers': 0.5.17
       react: 19.2.4
 
-  '@react-aria/utils@3.32.0(react-dom@19.2.4(react@19.2.4))(react@19.2.4)':
+  '@react-aria/utils@3.33.0(react-dom@19.2.4(react@19.2.4))(react@19.2.4)':
     dependencies:
       '@react-aria/ssr': 3.9.10(react@19.2.4)
       '@react-stately/flags': 3.1.2
       '@react-stately/utils': 3.11.0(react@19.2.4)
-      '@react-types/shared': 3.32.1(react@19.2.4)
+      '@react-types/shared': 3.33.0(react@19.2.4)
       '@swc/helpers': 0.5.17
       clsx: 2.1.1
       react: 19.2.4
       react-dom: 19.2.4(react@19.2.4)
 
-  '@react-aria/visually-hidden@3.8.29(react-dom@19.2.4(react@19.2.4))(react@19.2.4)':
+  '@react-aria/visually-hidden@3.8.30(react-dom@19.2.4(react@19.2.4))(react@19.2.4)':
     dependencies:
-      '@react-aria/interactions': 3.26.0(react-dom@19.2.4(react@19.2.4))(react@19.2.4)
-      '@react-aria/utils': 3.32.0(react-dom@19.2.4(react@19.2.4))(react@19.2.4)
-      '@react-types/shared': 3.32.1(react@19.2.4)
+      '@react-aria/interactions': 3.27.0(react-dom@19.2.4(react@19.2.4))(react@19.2.4)
+      '@react-aria/utils': 3.33.0(react-dom@19.2.4(react@19.2.4))(react@19.2.4)
+      '@react-types/shared': 3.33.0(react@19.2.4)
       '@swc/helpers': 0.5.17
       react: 19.2.4
       react-dom: 19.2.4(react@19.2.4)
 
-  '@react-stately/collections@3.12.8(react@19.2.4)':
+  '@react-stately/collections@3.12.9(react@19.2.4)':
     dependencies:
-      '@react-types/shared': 3.32.1(react@19.2.4)
+      '@react-types/shared': 3.33.0(react@19.2.4)
       '@swc/helpers': 0.5.17
       react: 19.2.4
 
-  '@react-stately/dnd@3.7.2(react@19.2.4)':
+  '@react-stately/dnd@3.7.3(react@19.2.4)':
     dependencies:
-      '@react-stately/selection': 3.20.7(react@19.2.4)
-      '@react-types/shared': 3.32.1(react@19.2.4)
+      '@react-stately/selection': 3.20.8(react@19.2.4)
+      '@react-types/shared': 3.33.0(react@19.2.4)
       '@swc/helpers': 0.5.17
       react: 19.2.4
 
@@ -6460,18 +6464,18 @@ snapshots:
     dependencies:
       '@swc/helpers': 0.5.17
 
-  '@react-stately/overlays@3.6.21(react@19.2.4)':
+  '@react-stately/overlays@3.6.22(react@19.2.4)':
     dependencies:
       '@react-stately/utils': 3.11.0(react@19.2.4)
-      '@react-types/overlays': 3.9.2(react@19.2.4)
+      '@react-types/overlays': 3.9.3(react@19.2.4)
       '@swc/helpers': 0.5.17
       react: 19.2.4
 
-  '@react-stately/selection@3.20.7(react@19.2.4)':
+  '@react-stately/selection@3.20.8(react@19.2.4)':
     dependencies:
-      '@react-stately/collections': 3.12.8(react@19.2.4)
+      '@react-stately/collections': 3.12.9(react@19.2.4)
       '@react-stately/utils': 3.11.0(react@19.2.4)
-      '@react-types/shared': 3.32.1(react@19.2.4)
+      '@react-types/shared': 3.33.0(react@19.2.4)
       '@swc/helpers': 0.5.17
       react: 19.2.4
 
@@ -6480,17 +6484,17 @@ snapshots:
       '@swc/helpers': 0.5.17
       react: 19.2.4
 
-  '@react-types/button@3.14.1(react@19.2.4)':
+  '@react-types/button@3.15.0(react@19.2.4)':
     dependencies:
-      '@react-types/shared': 3.32.1(react@19.2.4)
+      '@react-types/shared': 3.33.0(react@19.2.4)
       react: 19.2.4
 
-  '@react-types/overlays@3.9.2(react@19.2.4)':
+  '@react-types/overlays@3.9.3(react@19.2.4)':
     dependencies:
-      '@react-types/shared': 3.32.1(react@19.2.4)
+      '@react-types/shared': 3.33.0(react@19.2.4)
       react: 19.2.4
 
-  '@react-types/shared@3.32.1(react@19.2.4)':
+  '@react-types/shared@3.33.0(react@19.2.4)':
     dependencies:
       react: 19.2.4
 
@@ -6787,13 +6791,14 @@ snapshots:
     dependencies:
       '@swc/counter': 0.1.3
 
-  '@tanstack/eslint-plugin-query@5.91.3(eslint@9.39.2(jiti@2.6.1))(typescript@5.9.3)':
+  '@tanstack/eslint-plugin-query@5.91.4(eslint@9.39.2(jiti@2.6.1))(typescript@5.9.3)':
     dependencies:
       '@typescript-eslint/utils': 8.54.0(eslint@9.39.2(jiti@2.6.1))(typescript@5.9.3)
       eslint: 9.39.2(jiti@2.6.1)
+    optionalDependencies:
+      typescript: 5.9.3
     transitivePeerDependencies:
       - supports-color
-      - typescript
 
   '@tanstack/query-core@5.90.20': {}
 
@@ -9024,7 +9029,7 @@ snapshots:
     dependencies:
       react: 19.2.4
 
-  react-hotkeys-hook@5.2.3(react-dom@19.2.4(react@19.2.4))(react@19.2.4):
+  react-hotkeys-hook@5.2.4(react-dom@19.2.4(react@19.2.4))(react@19.2.4):
     dependencies:
       react: 19.2.4
       react-dom: 19.2.4(react@19.2.4)
@@ -9067,7 +9072,7 @@ snapshots:
     optionalDependencies:
       '@types/react': 19.2.13
 
-  react-resizable-panels@4.5.5(react-dom@19.2.4(react@19.2.4))(react@19.2.4):
+  react-resizable-panels@4.6.0(react-dom@19.2.4(react@19.2.4))(react@19.2.4):
     dependencies:
       react: 19.2.4
       react-dom: 19.2.4(react@19.2.4)

@@ -1,5 +1,6 @@
 import { expect, test, type Page } from '@playwright/test';
 import { RoleEditor } from '../page-objects/RoleEditor';
+import { cmdCtrl } from '../page-objects/test-helper';
 
 test('undo/redo', async ({ page, browserName }) => {
   const editor = await RoleEditor.openMock(page);
@@ -19,10 +20,10 @@ test('undo/redo', async ({ page, browserName }) => {
   await expect(toolbar.undo).toBeEnabled();
   await expect(toolbar.redo).toBeDisabled();
 
-  await page.keyboard.press('ControlOrMeta+z');
+  await page.keyboard.press(`${cmdCtrl(browserName)}+z`);
   await expect(toolbar.undo).toBeDisabled();
   await expect(toolbar.redo).toBeEnabled();
-  await page.keyboard.press(browserName === 'webkit' ? 'ControlOrMeta+Shift+z' : 'ControlOrMeta+Y');
+  await page.keyboard.press(browserName === 'webkit' ? `${cmdCtrl(browserName)}+Shift+z` : `${cmdCtrl(browserName)}+y`);
   await expect(toolbar.undo).toBeEnabled();
   await expect(toolbar.redo).toBeDisabled();
 });
