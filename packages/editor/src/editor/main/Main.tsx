@@ -32,7 +32,6 @@ import { useAppContext } from '../../context/AppContext';
 import { updateRoleReferences } from '../../utils/update-role-references';
 import { useKnownHotkeys } from '../../utils/useKnownHotkeys';
 import { AddRoleDialog } from '../dialog/AddRoleDialog';
-import './Main.css';
 import { ValidationRow } from './ValidationRow';
 
 export const Main = () => {
@@ -78,7 +77,7 @@ export const Main = () => {
             .split(',')
             .filter(member => member.trim().length > 0)
             .map(member => (
-              <Badge key={member} variant='secondary' size='s'>
+              <Badge key={member} variant='secondary' size='s' className='p-1'>
                 {member}
               </Badge>
             ))}
@@ -128,7 +127,7 @@ export const Main = () => {
 
   if (data === undefined || data.length === 0) {
     return (
-      <Flex direction='column' alignItems='center' justifyContent='center' style={{ height: '100%' }}>
+      <Flex direction='column' alignItems='center' justifyContent='center' className='h-full'>
         <PanelMessage icon={IvyIcons.Tool} message={t('message.addFirstRole')} mode='column'>
           <AddRoleDialog table={table}>
             <Button size='large' variant='primary' icon={IvyIcons.Plus}>
@@ -141,17 +140,17 @@ export const Main = () => {
   }
 
   return (
-    <Flex direction='column' ref={ref} onClick={resetSelection} className='role-editor-main-content'>
+    <Flex direction='column' ref={ref} onClick={resetSelection} className='h-full overflow-auto'>
       <BasicField
         tabIndex={-1}
         ref={firstElement}
-        className='role-editor-table-field'
+        className='m-3 min-h-0'
         label={t('label.roles')}
         control={<Controls table={table} deleteRole={table.getSelectedRowModel().flatRows.length > 0 ? deleteRole : undefined} />}
         onClick={event => event.stopPropagation()}
       >
         {globalFilter.filter}
-        <div className='role-editor-table-container'>
+        <div className='overflow-x-hidden'>
           <Table onKeyDown={e => handleKeyDown(e, () => setDetail(!detail))}>
             <TableResizableHeader headerGroups={table.getHeaderGroups()} onClick={resetSelection} />
             <TableBody>
@@ -177,7 +176,7 @@ const Controls = ({ table, deleteRole }: { table: ReactTable<RoleData>; deleteRo
       <AddRoleDialog table={table}>
         <Button icon={IvyIcons.Plus} aria-label={hotkeys.addRole.label} />
       </AddRoleDialog>
-      <Separator decorative orientation='vertical' style={{ height: '20px', margin: 0 }} />
+      <Separator decorative orientation='vertical' className='m-0! h-5!' />
       <TooltipProvider>
         <Tooltip>
           <TooltipTrigger asChild>

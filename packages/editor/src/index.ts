@@ -5,3 +5,4 @@ export * from './query/query-client';
 export * from './query/QueryProvider';
 export { default as deMessages } from './translation/role-editor/de.json';
 export { default as enMessages } from './translation/role-editor/en.json';
+import './index.css';

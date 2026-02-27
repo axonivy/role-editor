@@ -1,8 +1,7 @@
 import type { RoleData, Severity, ValidationResult } from '@axonivy/role-editor-protocol';
-import { MessageRow, SelectRow, TableCell } from '@axonivy/ui-components';
+import { cn, MessageRow, SelectRow, TableCell } from '@axonivy/ui-components';
 import { flexRender, type Row } from '@tanstack/react-table';
 import { useValidations } from '../../hooks/useValidation';
-import './ValidationRow.css';
 
 type ValidationRowProps = {
   row: Row<RoleData>;
@@ -35,10 +34,10 @@ export const rowClass = (validations?: Array<ValidationResult>) => {
     return '';
   }
   if (validations.find(message => message.severity === 'ERROR')) {
-    return 'role-editor-row-error';
+    return cn('border-b-error!');
   }
   if (validations.find(message => message.severity === 'WARNING')) {
-    return 'role-editor-row-warning';
+    return cn('border-b-warning!');
   }
   return '';
 };
