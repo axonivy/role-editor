@@ -10,7 +10,7 @@ export class Main {
   readonly table: Table;
 
   constructor(readonly page: Page) {
-    this.locator = page.locator('.role-editor-main-content');
+    this.locator = page.locator('#role-editor-main');
     this.add = this.locator.getByRole('button', { name: 'Add Role' });
     this.delete = this.locator.getByRole('button', { name: 'Delete Role' });
     this.search = this.locator.getByRole('textbox').first();

@@ -6,7 +6,6 @@ import { RoleSelect } from '../../components/RoleSelect';
 import { useAppContext } from '../../context/AppContext';
 import { useValidations } from '../../hooks/useValidation';
 import { updateRoleReferences } from '../../utils/update-role-references';
-import './DetailContent.css';
 import MemberCombobox from './components/MemberCombobox';
 import { NameInput } from './components/NameInput';
 
@@ -42,7 +41,7 @@ export const DetailContent = () => {
   const memberMessage = fieldMessage(validations, role.id, 'members');
 
   return (
-    <Flex direction='column' gap={4} className='role-editor-detail-content'>
+    <Flex direction='column' gap={4} className='min-h-0 overflow-auto p-3'>
       <NameInput value={role.id} onChange={updateName} roles={data.filter(r => r.id !== role.id)} message={nameMessage} />
       <BasicField label={t('common.label.displayName')}>
         <BasicInput value={role.displayName} onChange={event => handleAttributeChange('displayName', event.target.value)} />

@@ -8,7 +8,6 @@ export class Detail {
   readonly locator: Locator;
   readonly header: Locator;
   readonly help: Locator;
-  readonly content: Locator;
   readonly name: Textbox;
   readonly displayName: Locator;
   readonly parent: Select;
@@ -16,10 +15,9 @@ export class Detail {
 
   constructor(page: Page) {
     this.page = page;
-    this.locator = this.page.locator('.role-editor-detail-panel');
-    this.header = this.locator.locator('.role-editor-detail-header');
+    this.locator = this.page.locator('#role-editor-detail');
+    this.header = this.locator.locator('.ui-sidebar-header');
     this.help = this.locator.getByRole('button', { name: 'Open Help' });
-    this.content = this.locator.locator('.role-editor-detail-content');
     this.name = new Textbox(this.locator, { name: 'Name' });
     this.displayName = this.locator.getByLabel('Display Name', { exact: true });
     this.parent = new Select(page, this.locator, { name: 'Parent Role' });
