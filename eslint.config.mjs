@@ -16,6 +16,6 @@ export default config.defineConfig(
   },
   {
     name: 'ignored-files',
-    ignores: ['protocol/src/data/role.ts', 'playwright/tests/global.setup.ts']
+    ignores: ['protocol/src/data/role.ts']
   }
 );
