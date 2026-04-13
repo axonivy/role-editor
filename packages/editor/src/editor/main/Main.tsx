@@ -122,8 +122,8 @@ export const Main = () => {
   const hotkeys = useKnownHotkeys();
   const readonly = useReadonly();
   const ref = useHotkeys<HTMLDivElement>(hotkeys.deleteRole.hotkey, () => deleteRole(), { scopes: ['global'], enabled: !readonly });
-  const firstElement = useRef<HTMLDivElement>(null);
-  useHotkeys(hotkeys.focusMain.hotkey, () => firstElement.current?.focus(), { scopes: ['global'] });
+  const firstElementRef = useRef<HTMLDivElement>(null);
+  useHotkeys(hotkeys.focusMain.hotkey, () => firstElementRef.current?.focus(), { scopes: ['global'] });
 
   if (data === undefined || data.length === 0) {
     return (
@@ -143,7 +143,7 @@ export const Main = () => {
     <Flex direction='column' ref={ref} onClick={resetSelection} className='h-full overflow-auto'>
       <BasicField
         tabIndex={-1}
-        ref={firstElement}
+        ref={firstElementRef}
         className='m-3 min-h-0'
         label={t('label.roles')}
         control={<Controls table={table} deleteRole={table.getSelectedRowModel().flatRows.length > 0 ? deleteRole : undefined} />}
