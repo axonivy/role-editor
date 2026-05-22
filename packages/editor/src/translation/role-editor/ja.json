@@ -20,18 +20,33 @@
     }
   },
   "dialog": {
-    "create": "作成"
+    "create": "作成",
+    "addRole": {
+      "desc": "新しいロールを追加します.",
+      "title": "ロールの追加"
+    },
+    "createTooltip": "追加ロールを追加するには、{{modifier}} を押します."
   },
   "message": {
     "notFound": "見つかりません",
     "emptyName": "名前を空にすることはできません。",
-    "errorOnly": "エラー: {{error}}"
+    "errorOnly": "エラー: {{error}}",
+    "addFirstRole": "スタートする最初のロールを追加",
+    "roleAlreadyExists": "既に存在している役割."
   },
   "label": {
     "parentRole": "親ロール",
-    "roles": "ロール"
+    "roles": "ロール",
+    "memberRoles": "メンバー",
+    "noRoleSelected": "選択されたロールなし",
+    "noRolesFound": "役割が見つかりません"
   },
   "title": {
-    "detail": "ロール"
+    "detail": "ロール",
+    "main": "役割 - {{name}}"
+  },
+  "hotkey": {
+    "addRole": "ロールを追加 ({{hotkey}})",
+    "deleteRole": "ロール削除 ({{hotkey}})"
   }
 }
