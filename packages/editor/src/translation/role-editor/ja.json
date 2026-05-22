@@ -1,14 +1,20 @@
 {
   "common": {
-    "hotkey": {},
-    "label": {},
-    "message": {}
+    "hotkey": {
+      "focusMain": "メインをフォーカス ({{hotkey}})",
+      "focusToolbar": "ツールバーをフォーカス ({{hotkey}})",
+      "help": "オープンヘルプ({{hotkey}})",
+      "redo": "やり直す ({{hotkey}})",
+      "undo": "元に戻す ({{hotkey}})"
+    },
+    "label": {
+      "name": "名前"
+    }
   },
   "dialog": {
-    "addRole": {}
+    "create": "作成"
   },
-  "hotkey": {},
-  "label": {},
-  "message": {},
-  "title": {}
+  "message": {
+    "notFound": "見つかりません"
+  }
 }
