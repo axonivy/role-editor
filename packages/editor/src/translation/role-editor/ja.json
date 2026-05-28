@@ -3,7 +3,7 @@
     "hotkey": {
       "focusMain": "メインをフォーカス ({{hotkey}})",
       "focusToolbar": "ツールバーをフォーカス ({{hotkey}})",
-      "help": "オープンヘルプ({{hotkey}})",
+      "help": "ヘルプを開く ({{hotkey}})",
       "redo": "やり直す ({{hotkey}})",
       "undo": "元に戻す ({{hotkey}})",
       "focusInscription": "インスクリプションをフォーカス ({{hotkey}})"
