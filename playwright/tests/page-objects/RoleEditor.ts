@@ -7,7 +7,7 @@ export const server = process.env.BASE_URL ?? 'localhost:8080/~Developer-role-te
 export const user = 'Developer';
 const ws = process.env.TEST_WS ?? '';
 const app = process.env.TEST_APP ?? 'Developer-role-test-project';
-const pmv = 'role-test-project';
+const project = 'role-test-project';
 
 export class RoleEditor {
   readonly page: Page;
@@ -25,7 +25,7 @@ export class RoleEditor {
 
   static async openRole(page: Page, options?: { readonly?: boolean; theme?: string }) {
     const serverUrl = server.replace(/^https?:\/\//, '');
-    let url = `?server=${serverUrl}${ws}&app=${app}&pmv=${pmv}&file=config/roles.yaml`;
+    let url = `?server=${serverUrl}${ws}&app=${app}&project=${project}&file=config/roles.yaml`;
     if (options) {
       url += Object.entries(options)
         .map(([key, value]) => `&${key}=${value}`)
