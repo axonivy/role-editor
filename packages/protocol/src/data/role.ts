@@ -22,7 +22,7 @@ export interface EditorFileContent {
 export interface RoleContext {
   app: string;
   file: string;
-  pmv: string;
+  project: string;
 }
 export interface RoleEditorData {
   context: RoleContext;

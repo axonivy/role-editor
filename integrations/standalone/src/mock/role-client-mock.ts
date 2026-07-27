@@ -14,7 +14,7 @@ export class RoleClientMock implements RoleClient {
   private roleData: RoleEditorData;
   constructor() {
     this.roleData = {
-      context: { app: 'mockApp', pmv: 'mockPmv', file: 'roles.yaml' },
+      context: { app: 'mockApp', project: 'mockproject', file: 'roles.yaml' },
       data: data,
       helpUrl: 'https://dev.axonivy.com',
       readonly: false
