@@ -13,8 +13,8 @@ export default defineConfig({
   server: { port: 3000 },
   resolve: {
     alias: {
-      '@axonivy/role-editor': resolve(__dirname, '../../packages/editor/src'),
-      '@axonivy/role-editor-protocol': resolve(__dirname, '../../packages/protocol/src')
+      '@axonivy/role-editor': resolve(import.meta.dirname, '../../packages/editor/src'),
+      '@axonivy/role-editor-protocol': resolve(import.meta.dirname, '../../packages/protocol/src')
     }
   },
   base: './'
