@@ -14,7 +14,8 @@ import {
   TooltipProvider,
   TooltipTrigger,
   useDialogHotkeys,
-  useHotkeys
+  useHotkeys,
+  type DataTableFeatures
 } from '@axonivy/ui-components';
 import { IvyIcons } from '@axonivy/ui-icons';
 import type { Table } from '@tanstack/react-table';
@@ -27,7 +28,7 @@ import { useKnownHotkeys } from '../../utils/useKnownHotkeys';
 
 const DIALOG_HOTKEY_IDS = ['addRoleDialog'];
 
-export const AddRoleDialog = ({ table, children }: { table: Table<RoleData>; children: ReactNode }) => {
+export const AddRoleDialog = ({ table, children }: { table: Table<DataTableFeatures, RoleData>; children: ReactNode }) => {
   const { open, onOpenChange } = useDialogHotkeys(DIALOG_HOTKEY_IDS);
   const { addRole: shortcut } = useKnownHotkeys();
   useHotkeys(shortcut.hotkey, () => onOpenChange(true), { scopes: ['global'], keyup: true, enabled: !open });
@@ -48,7 +49,7 @@ export const AddRoleDialog = ({ table, children }: { table: Table<RoleData>; chi
   );
 };
 
-const AddDialogContent = ({ table, closeDialog }: { table: Table<RoleData>; closeDialog: () => void }) => {
+const AddDialogContent = ({ table, closeDialog }: { table: Table<DataTableFeatures, RoleData>; closeDialog: () => void }) => {
   const nameInputRef = useRef<HTMLInputElement>(null);
   const { t } = useTranslation();
   const { data, setData, setSelectedIndex } = useAppContext();
