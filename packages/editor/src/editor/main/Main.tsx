@@ -3,6 +3,7 @@ import {
   Badge,
   BasicField,
   Button,
+  dataTableHelper,
   deleteFirstSelectedRow,
   Flex,
   IvyIcon,
@@ -12,6 +13,7 @@ import {
   SortableHeader,
   Table,
   TableBody,
+  TableGlobalFilter,
   TableResizableHeader,
   Tooltip,
   TooltipContent,
@@ -19,14 +21,12 @@ import {
   TooltipTrigger,
   useHotkeys,
   useReadonly,
-  useTableGlobalFilter,
   useTableKeyHandler,
-  useTableSelect,
-  useTableSort
+  type DataTableFeatures
 } from '@axonivy/ui-components';
 import { IvyIcons } from '@axonivy/ui-icons';
-import { getCoreRowModel, useReactTable, type ColumnDef, type Table as ReactTable } from '@tanstack/react-table';
-import { useRef } from 'react';
+import { useTable, type Table as ReactTable } from '@tanstack/react-table';
+import { useEffect, useRef } from 'react';
 import { useTranslation } from 'react-i18next';
 import { useAppContext } from '../../context/AppContext';
 import { updateRoleReferences } from '../../utils/update-role-references';
@@ -34,25 +34,14 @@ import { useKnownHotkeys } from '../../utils/useKnownHotkeys';
 import { AddRoleDialog } from '../dialog/AddRoleDialog';
 import { ValidationRow } from './ValidationRow';
 
+const { columnHelper, tableOptions } = dataTableHelper<RoleData>();
+
 export const Main = () => {
   const { t } = useTranslation();
   const { data, setData, setSelectedIndex, detail, setDetail } = useAppContext();
 
-  const selection = useTableSelect<RoleData>({
-    onSelect: selectedRows => {
-      const selectedRowIndex = Object.keys(selectedRows).find(key => selectedRows[key]);
-      if (selectedRowIndex === undefined) {
-        setSelectedIndex(-1);
-        return;
-      }
-      setSelectedIndex(Number(selectedRowIndex));
-    }
-  });
-  const globalFilter = useTableGlobalFilter();
-  const sort = useTableSort();
-  const columns: Array<ColumnDef<RoleData, string>> = [
-    {
-      accessorKey: 'id',
+  const columns = columnHelper.columns([
+    columnHelper.accessor('id', {
       header: ({ column }) => <SortableHeader column={column} name={t('common.label.name')} />,
       cell: cell => (
         <Flex alignItems='center' gap={1}>
@@ -60,15 +49,13 @@ export const Main = () => {
           <span>{cell.getValue()}</span>
         </Flex>
       )
-    },
-    {
-      accessorKey: 'parent',
+    }),
+    columnHelper.accessor('parent', {
       header: ({ column }) => <SortableHeader column={column} name={t('label.parentRole')} />,
       cell: cell => <span>{cell.getValue()}</span>
-    },
-    {
+    }),
+    columnHelper.accessor(row => row.members.join(','), {
       id: 'member',
-      accessorFn: row => row.members.join(','),
       header: () => <span>{t('label.memberRoles')}</span>,
       cell: cell => (
         <Flex direction='row' gap={1}>
@@ -83,22 +70,26 @@ export const Main = () => {
             ))}
         </Flex>
       )
-    }
-  ];
+    })
+  ]);
 
-  const table = useReactTable({
-    ...selection.options,
-    ...globalFilter.options,
-    ...sort.options,
+  const table = useTable({
+    ...tableOptions,
     data,
-    columns,
-    getCoreRowModel: getCoreRowModel(),
-    state: {
-      ...selection.tableState,
-      ...sort.tableState,
-      ...globalFilter.tableState
-    }
+    columns
   });
+
+  useEffect(() => {
+    const subscription = table.atoms.rowSelection.subscribe(selectedRows => {
+      const selectedRowIndex = Object.keys(selectedRows).find(key => selectedRows[key]);
+      if (selectedRowIndex === undefined) {
+        setSelectedIndex(-1);
+        return;
+      }
+      setSelectedIndex(Number(selectedRowIndex));
+    });
+    return () => subscription.unsubscribe();
+  }, [table, setSelectedIndex]);
 
   const { handleKeyDown } = useTableKeyHandler({
     table,
@@ -149,7 +140,7 @@ export const Main = () => {
         control={<Controls table={table} deleteRole={table.getSelectedRowModel().flatRows.length > 0 ? deleteRole : undefined} />}
         onClick={event => event.stopPropagation()}
       >
-        {globalFilter.filter}
+        <TableGlobalFilter table={table} />
         <div className='overflow-x-hidden'>
           <Table onKeyDown={e => handleKeyDown(e, () => setDetail(!detail))}>
             <TableResizableHeader headerGroups={table.getHeaderGroups()} onClick={resetSelection} />
@@ -165,7 +156,7 @@ export const Main = () => {
   );
 };
 
-const Controls = ({ table, deleteRole }: { table: ReactTable<RoleData>; deleteRole?: () => void }) => {
+const Controls = ({ table, deleteRole }: { table: ReactTable<DataTableFeatures, RoleData>; deleteRole?: () => void }) => {
   const readonly = useReadonly();
   const hotkeys = useKnownHotkeys();
   if (readonly) {
