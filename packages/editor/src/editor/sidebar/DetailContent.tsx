@@ -4,6 +4,7 @@ import { useMemo } from 'react';
 import { useTranslation } from 'react-i18next';
 import { RoleSelect } from '../../components/RoleSelect';
 import { useAppContext } from '../../context/AppContext';
+import { useAction } from '../../hooks/useAction';
 import { useValidations } from '../../hooks/useValidation';
 import { updateRoleReferences } from '../../utils/update-role-references';
 import MemberCombobox from './components/MemberCombobox';
@@ -12,6 +13,7 @@ import { NameInput } from './components/NameInput';
 export const DetailContent = () => {
   const { t } = useTranslation();
   const { data, setData, selectedIndex } = useAppContext();
+  const openUrl = useAction('openUrl');
   const role = useMemo(() => data[selectedIndex], [data, selectedIndex]);
   const validations = useValidations(role?.id ?? '');
   if (role === undefined) {
@@ -36,9 +38,9 @@ export const DetailContent = () => {
       return updateRoleReferences(old, oldRoleId, name);
     });
   };
-  const nameMessage = fieldMessage(validations, role.id, 'id');
-  const parentMessage = fieldMessage(validations, role.id, 'parent');
-  const memberMessage = fieldMessage(validations, role.id, 'members');
+  const nameMessage = fieldMessage(validations, role.id, 'id', openUrl);
+  const parentMessage = fieldMessage(validations, role.id, 'parent', openUrl);
+  const memberMessage = fieldMessage(validations, role.id, 'members', openUrl);
 
   return (
     <Flex direction='column' gap={4} className='min-h-0 overflow-auto p-3'>
@@ -64,7 +66,13 @@ export const DetailContent = () => {
   );
 };
 
-const fieldMessage = (validations: Array<ValidationResult>, roleId: string, field: keyof RoleData) =>
+const fieldMessage = (validations: Array<ValidationResult>, roleId: string, field: keyof RoleData, openUrl: (url: string) => void): MessageData | undefined =>
   validations
     .filter(v => v.path === `${roleId}.${field}`)
-    .map<MessageData>(v => ({ message: v.message, variant: v.severity.toLocaleLowerCase() as Lowercase<Severity> }))[0];
+    .map<MessageData>(
+      v => ({
+        message: v.message,
+        variant: v.severity.toLocaleLowerCase() as Lowercase<Severity>,
+        reference: v.url ? { tooltip: v.code, openUrl: () => openUrl(v.url) } : undefined
+      })
+    )[0];
