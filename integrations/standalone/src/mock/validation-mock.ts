@@ -11,13 +11,6 @@ export const validateMock = (data: Array<RoleData>): Array<ValidationResult> => 
         code: 'INVALID_ROLE_ID',
         url: 'https://dev.axonivy.com/roles'
       });
-      validations.push({
-        path: `${role.id}.id`,
-        message: `Role ${role.id} has a reserved character`,
-        severity: 'WARNING',
-        code: 'RESERVED_ROLE_CHARACTER',
-        url: ''
-      });
     }
   });
   return validations;

@@ -8,13 +8,10 @@ test('table', async ({ page }) => {
   await dialog.create.click();
   const validations = editor.main.table.locator.locator('.ui-message-row');
   const linkedValidation = validations.filter({ hasText: 'Role invalid#role contains invalid characters' });
-  const unlinkedValidation = validations.filter({ hasText: 'Role invalid#role has a reserved character' });
   await expect(linkedValidation).toBeVisible();
-  await expect(unlinkedValidation).toBeVisible();
 
   const openUrlButton = linkedValidation.getByRole('button', { name: 'INVALID_ROLE_ID' });
   await expect(openUrlButton).toBeVisible();
-  await expect(unlinkedValidation.getByRole('button')).toHaveCount(0);
 
   await expect(editor.detail.locator.getByRole('button', { name: 'INVALID_ROLE_ID' })).toBeVisible();
 

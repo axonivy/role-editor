@@ -24,7 +24,7 @@ export const ValidationRow = ({ row }: ValidationRowProps) => {
         const message = {
           message: val.message,
           variant: val.severity.toLocaleLowerCase() as Lowercase<Severity>,
-          reference: val.url ? { tooltip: val.code, openUrl: () => openUrl(val.url) } : undefined
+          reference: { tooltip: val.code, openUrl: () => openUrl(val.url) }
         };
         return (
           <MessageRow
