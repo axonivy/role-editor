@@ -1,4 +1,4 @@
-import { expect, test } from '@playwright/test';
+import { expect, test, type Page } from '@playwright/test';
 import { RoleEditor } from '../page-objects/RoleEditor';
 
 test('table', async ({ page }) => {
@@ -6,7 +6,19 @@ test('table', async ({ page }) => {
   const dialog = await editor.main.openAddRoleDialog();
   await dialog.name.locator.fill('invalid#role');
   await dialog.create.click();
-  await expect(editor.main.table.locator.locator('.ui-message-row')).toHaveText('Role invalid#role contains invalid characters');
+  const validations = editor.main.table.locator.locator('.ui-message-row');
+  const linkedValidation = validations.filter({ hasText: 'Role invalid#role contains invalid characters' });
+  await expect(linkedValidation).toBeVisible();
+
+  const openUrlButton = linkedValidation.getByRole('button', { name: 'INVALID_ROLE_ID' });
+  await expect(openUrlButton).toBeVisible();
+
+  await expect(editor.detail.locator.getByRole('button', { name: 'INVALID_ROLE_ID' })).toBeVisible();
+
+  const action = consoleLog(page);
+  await openUrlButton.click();
+  expect(await action).toContain('"actionId":"openUrl"');
+  expect(await action).toContain('"payload":"https://dev.axonivy.com/roles"');
 });
 
 test('add role', async ({ page }) => {
@@ -18,3 +30,14 @@ test('add role', async ({ page }) => {
   await dialog.name.locator.fill('Employee1');
   await expect((await dialog.name.message()).locator).toBeHidden();
 });
+
+const consoleLog = (page: Page) =>
+  new Promise<string>(resolve => {
+    const listener = (message: import('@playwright/test').ConsoleMessage) => {
+      if (message.type() === 'log' && message.text().includes('"actionId":"openUrl"')) {
+        page.off('console', listener);
+        resolve(message.text());
+      }
+    };
+    page.on('console', listener);
+  });

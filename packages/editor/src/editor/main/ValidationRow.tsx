@@ -1,6 +1,7 @@
 import type { RoleData, Severity, ValidationResult } from '@axonivy/role-editor-protocol';
 import { cn, MessageRow, SelectRow, TableCell, type DataTableFeatures } from '@axonivy/ui-components';
 import { flexRender, type Row } from '@tanstack/react-table';
+import { useAction } from '../../hooks/useAction';
 import { useValidations } from '../../hooks/useValidation';
 
 type ValidationRowProps = {
@@ -9,6 +10,7 @@ type ValidationRowProps = {
 
 export const ValidationRow = ({ row }: ValidationRowProps) => {
   const validations = useValidations(row.original.id);
+  const openUrl = useAction('openUrl');
   return (
     <>
       <SelectRow row={row} className={rowClass(validations)}>
@@ -18,14 +20,21 @@ export const ValidationRow = ({ row }: ValidationRowProps) => {
           </TableCell>
         ))}
       </SelectRow>
-      {validations?.map((val, index) => (
-        <MessageRow
-          // eslint-disable-next-line @eslint-react/no-array-index-key
-          key={`${index}-${val.message}`}
-          columnCount={row.getVisibleCells().length}
-          message={{ message: val.message, variant: val.severity.toLocaleLowerCase() as Lowercase<Severity> }}
-        />
-      ))}
+      {validations?.map((val, index) => {
+        const message = {
+          message: val.message,
+          variant: val.severity.toLocaleLowerCase() as Lowercase<Severity>,
+          reference: { tooltip: val.code, openUrl: () => openUrl(val.url) }
+        };
+        return (
+          <MessageRow
+            // eslint-disable-next-line @eslint-react/no-array-index-key
+            key={`${index}-${val.message}`}
+            columnCount={row.getVisibleCells().length}
+            message={message}
+          />
+        );
+      })}
     </>
   );
 };
